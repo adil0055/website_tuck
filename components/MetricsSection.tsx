@@ -30,53 +30,53 @@ export default function MetricsSection() {
             <div className="max-w-[1440px] mx-auto" data-node-id="40:1343">
                 {/* Three Metrics Grid */}
                 <div className="grid grid-cols-1 md:grid-cols-3">
-                        {metrics.map((metric, index) => (
-                            <div
-                                key={index}
-                                className={`
+                    {metrics.map((metric, index) => (
+                        <div
+                            key={index}
+                            className={`
                                     bg-white px-6 lg:px-[63px] py-8 lg:py-10
                                     ${index === 0 ? 'md:border-r md:border-black' : ''}
                                     ${index === 1 ? 'md:border-r md:border-black' : ''}
                                     ${index < 2 ? 'border-b md:border-b-0 border-black' : ''}
                                 `}
-                                data-node-id={index === 0 ? "40:1344" : index === 1 ? "40:1345" : "40:1352"}
+                            data-node-id={index === 0 ? "40:1344" : index === 1 ? "40:1345" : "40:1352"}
+                        >
+                            {/* Metric Value and Label */}
+                            <div
+                                className="mb-6"
+                                data-node-id={metric.nodeId}
                             >
-                                {/* Metric Value and Label */}
-                                <div 
-                                    className="mb-6"
-                                    data-node-id={metric.nodeId}
-                                >
-                                    {/* Metric Value */}
-                                    <div className="font-heading text-[48px] font-bold text-graphite leading-[31px] tracking-[-0.1px] mb-2">
-                                        {metric.value}
-                                    </div>
-
-                                    {/* Metric Label */}
-                                    <h3 className="font-heading text-[24px] font-bold text-graphite leading-[31px] tracking-[-0.1px]">
-                                        {metric.label}
-                                    </h3>
+                                {/* Metric Value */}
+                                <div className="font-heading text-[48px] font-bold text-black leading-[31px] tracking-[-0.1px] mb-2">
+                                    {metric.value}
                                 </div>
 
-                                {/* Description - Split lines */}
-                                <div 
-                                    className="font-body text-[16px] text-graphite leading-[24px] tracking-[-0.1px]"
-                                    data-node-id={metric.descriptionNodeId}
-                                >
-                                    {metric.description.split(' ').map((word, i, arr) => {
-                                        const isFirstHalf = i < arr.length / 2;
-                                        return (
-                                            <span key={i}>
-                                                {word}
-                                                {isFirstHalf && i === Math.floor(arr.length / 2) - 1 ? <br /> : ' '}
-                                            </span>
-                                        );
-                                    })}
-                                </div>
+                                {/* Metric Label */}
+                                <h3 className="font-heading text-[24px] font-bold text-black leading-[31px] tracking-[-0.1px]">
+                                    {metric.label}
+                                </h3>
                             </div>
-                        ))}
-                    </div>
+
+                            {/* Description - Split lines */}
+                            <div
+                                className="font-body text-[16px] text-black leading-[24px] tracking-[-0.1px]"
+                                data-node-id={metric.descriptionNodeId}
+                            >
+                                {metric.description.split(' ').map((word, i, arr) => {
+                                    const isFirstHalf = i < arr.length / 2;
+                                    return (
+                                        <span key={i}>
+                                            {word}
+                                            {isFirstHalf && i === Math.floor(arr.length / 2) - 1 ? <br /> : ' '}
+                                        </span>
+                                    );
+                                })}
+                            </div>
+                        </div>
+                    ))}
                 </div>
-            </section>
-        );
-    }
+            </div>
+        </section>
+    );
+}
 

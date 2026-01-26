@@ -43,12 +43,12 @@ export default function Hero() {
                     }
                 }
             `}</style>
-            
+
             {/* Decorative Blur Ellipses - Group 228 (node 40:911) */}
             {/* Positioned behind grid and content */}
             <div className="absolute inset-0 w-full h-full pointer-events-none overflow-hidden">
                 {/* Ellipse 25 - Blue blur top-center-right (40:912) */}
-                <div 
+                <div
                     className="absolute rounded-full"
                     style={{
                         left: '71.5%',
@@ -61,9 +61,9 @@ export default function Hero() {
                         animation: 'float-ellipse-25 4s ease-in-out infinite',
                     }}
                 />
-                
+
                 {/* Ellipse 21 - Gray blur top-right (40:913) */}
-                <div 
+                <div
                     className="absolute rounded-full"
                     style={{
                         left: '96.8%',
@@ -77,9 +77,9 @@ export default function Hero() {
                         animationDelay: '1s',
                     }}
                 />
-                
+
                 {/* Ellipse 20 - Gray blur bottom-left (40:914) */}
-                <div 
+                <div
                     className="absolute rounded-full"
                     style={{
                         left: '-14%',
@@ -93,9 +93,9 @@ export default function Hero() {
                         animationDelay: '2s',
                     }}
                 />
-                
+
                 {/* Ellipse 24 - Blue blur bottom-left (40:915) */}
-                <div 
+                <div
                     className="absolute rounded-full"
                     style={{
                         left: '-9.7%',
@@ -112,7 +112,7 @@ export default function Hero() {
             </div>
 
             {/* Responsive Grid Background using CSS Grid */}
-            <div 
+            <div
                 className="absolute inset-0 w-full h-full pointer-events-none"
                 style={{
                     display: 'grid',
@@ -128,7 +128,7 @@ export default function Hero() {
                         className="relative w-full h-full"
                     >
                         {/* Backdrop blur gradient effect from Figma Base component */}
-                        <div 
+                        <div
                             className="absolute inset-0 mix-blend-overlay"
                             style={{
                                 backdropFilter: 'blur(3.5vw)',
@@ -158,7 +158,7 @@ export default function Hero() {
                 <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-[18px]">
                     {/* Book demo button - Rectangle 4214 (32:951) + Text (32:954) */}
                     {/* 132px × 42px, blue bg, white text, 17px Figtree Bold, -0.5px tracking */}
-                    <button 
+                    <button
                         className="font-body font-bold bg-[#4060FF] text-white text-[17px] tracking-[-0.5px] rounded-[2px] hover:bg-[#3050EE] transition-all w-full sm:w-[132px] h-[42px] flex items-center justify-center leading-normal"
                         data-node-id="32:954"
                     >
@@ -166,7 +166,7 @@ export default function Hero() {
                     </button>
                     {/* Learn More button - Rectangle 4215 (32:952) + Text (32:953) */}
                     {/* 132px × 42px, white bg, gray border, 14px text, -0.5px tracking */}
-                    <button 
+                    <button
                         className="font-body font-bold border border-[#E5E7EB] text-[rgba(0,0,0,0.56)] text-[14px] tracking-[-0.5px] rounded-[2px] hover:bg-gray-50 transition-all bg-white w-full sm:w-[132px] h-[42px] flex items-center justify-center leading-normal"
                         data-node-id="32:953"
                     >

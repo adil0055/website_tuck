@@ -2,8 +2,10 @@ import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 import DarkFeature from "@/components/DarkFeature";
 import TuckSolutions from "@/components/TuckSolutions";
-import MetricsSection from "@/components/MetricsSection";
-import UseCases from "@/components/UseCases";
+import BusinessImpact from "@/components/BusinessImpact";
+import FeatureStack from "@/components/FeatureStack";
+import Features from "@/components/Features";
+import Footer from "@/components/Footer";
 
 export default function Home() {
     return (
@@ -12,8 +14,11 @@ export default function Home() {
             <Hero />
             <DarkFeature />
             <TuckSolutions />
-            <MetricsSection />
-            <UseCases />
+            <FeatureStack />
+            <BusinessImpact />
+            <Features />
+            <Footer />
+            {/* <MetricsSection /> */}
         </main>
     );
 }
