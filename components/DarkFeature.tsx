@@ -26,9 +26,10 @@ export default function DarkFeature() {
         <section 
             className="bg-black text-white relative"
             style={{
-                minHeight: '768px',
+                height: '768px',
                 paddingTop: '80px',
                 paddingBottom: '80px',
+                marginBottom: '0px',
             }}
             data-node-id="32:955"
         >
