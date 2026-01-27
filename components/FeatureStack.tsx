@@ -11,12 +11,12 @@ gsap.registerPlugin(ScrollTrigger);
 // --- Constants (matching transform9 behavior) ---
 const CARD_HEIGHT = 546; // Card height in pixels
 const CARD_WIDTH = 1601; // Card max width in pixels
-const INACTIVE_Y_OFFSET = -30; // Cards move up when covered (in px, like -1.781vw)
-const SCALE_WHEN_COVERED = 0.97; // Scale when card is behind (0.9703 from transform9)
-const INACTIVE_BG = "rgb(180, 180, 180)"; // Grey color for inactive cards (adjusted for better contrast)
-const ACTIVE_BG = "rgb(0, 0, 0)"; // Black color for active cards
-const OVERLAP_THRESHOLD = 0.8; // 50% - card must be more than half covered to grey out
-const CONTENT_OFFSET_X = 370; // adjust to match design
+const INACTIVE_Y_OFFSET = -30;
+const SCALE_WHEN_COVERED = 0.97;
+const INACTIVE_BG = "rgb(180, 180, 180)";
+const ACTIVE_BG = "rgb(0, 0, 0)";
+const OVERLAP_THRESHOLD = 0.8;
+// Removed fixed CONTENT_OFFSET_X, handled via Tailwind classes
 
 // --- Types ---
 interface Feature {
@@ -124,57 +124,65 @@ const FeatureCard = ({
     return (
         <div
             ref={cardRef}
-            className="scheduling-card absolute left-1/2 -translate-x-1/2 w-full p-12 origin-top overflow-hidden will-change-transform"
+            className="scheduling-card absolute left-1/2 -translate-x-1/2 w-full p-6 md:p-12 origin-top overflow-hidden will-change-transform rounded-xl md:rounded-none bg-black"
             style={{
                 maxWidth: CARD_WIDTH,
-                height: CARD_HEIGHT,
-                backgroundColor: ACTIVE_BG,
-                // All cards start at same position, stacked
-                top: 0,
-                // Later cards have higher z-index (appear on top)
                 zIndex: index + 1,
             }}
         >
+            {/* Force fixed height and styles on MD+ screens to match design */}
+            <style jsx>{`
+                .scheduling-card {
+                    height: ${CARD_HEIGHT}px;
+                    top: 0;
+                }
+                @media (max-width: 768px) {
+                    .scheduling-card {
+                        height: 580px; /* Slightly taller for mobile content if needed, or keep same */
+                    }
+                }
+            `}</style>
+
             {/* Content */}
-            <div className="relative z-10 flex flex-col h-full justify-between">
+            <div className="relative z-10 flex flex-col h-full justify-between gap-6 md:gap-0">
                 {/* Top Section: Index and Title/Subtitle */}
-                <div className="flex items-start gap-12">
+                <div className="flex flex-col md:flex-row items-start gap-4 md:gap-12">
                     {/* Index Number - Left Side */}
-                    <p className="font-heading text-[32px] font-normal text-white leading-[66px]">
+                    <p className="font-heading text-[24px] md:text-[32px] font-normal text-white leading-tight md:leading-[66px]">
                         {feature.index}
                     </p>
 
                     {/* Title and Subtitle - Center */}
-                    <div className="flex-1" style={{ marginLeft: CONTENT_OFFSET_X }}>
-                        <h3 className="font-heading text-[32px] font-medium text-white leading-[66px] mb-2">
+                    <div className="flex-1 w-full md:ml-[370px]">
+                        <h3 className="font-heading text-[24px] md:text-[32px] font-medium text-white leading-tight md:leading-[66px] mb-2">
                             {feature.title}
                         </h3>
-                        <p className="font-heading text-[28px] font-normal text-white leading-[66px]">
+                        <p className="font-heading text-[18px] md:text-[28px] font-normal text-white leading-tight md:leading-[66px]">
                             {feature.subtitle}
                         </p>
                     </div>
                 </div>
 
                 {/* Bottom Section: Stat, Description, and Buttons */}
-                <div className="pl-[100px]" style={{ marginLeft: CONTENT_OFFSET_X }}>
+                <div className="flex-1 md:ml-[370px] md:pl-[100px] flex flex-col justify-end">
                     {/* Stat (if exists) */}
                     {feature.stat && (
-                        <p className="font-heading text-[16px] font-normal text-white leading-[66px] mb-2">
+                        <p className="font-heading text-[14px] md:text-[16px] font-normal text-white leading-normal md:leading-[66px] mb-2">
                             {feature.stat}
                         </p>
                     )}
 
                     {/* Description */}
-                    <p className="font-body text-[22px] font-normal text-white leading-[28px] mb-8 max-w-[689px]">
+                    <p className="font-body text-[16px] md:text-[22px] font-normal text-white leading-[1.5] md:leading-[28px] mb-6 md:mb-8 max-w-full md:max-w-[689px]">
                         {feature.description}
                     </p>
 
                     {/* Buttons */}
-                    <div className="flex items-center gap-8">
-                        <button className="font-body font-semibold bg-white text-black px-8 py-2 text-[15px] hover:bg-opacity-90 transition-all h-[34px] flex items-center justify-center border border-white">
+                    <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 md:gap-8">
+                        <button className="font-body font-semibold bg-white text-black px-6 md:px-8 py-2 text-[14px] md:text-[15px] hover:bg-opacity-90 transition-all h-[40px] md:h-[34px] flex items-center justify-center border border-white w-full sm:w-auto rounded-none">
                             {feature.buttonText}
                         </button>
-                        <button className="font-body font-medium text-white text-[15px] hover:underline leading-[25.2px]">
+                        <button className="font-body font-medium text-white text-[14px] md:text-[15px] hover:underline leading-[25.2px]">
                             {feature.linkText} →
                         </button>
                     </div>
@@ -202,8 +210,9 @@ export default function FeatureStack() {
 
             // Each card transition takes one viewport height of scroll
             const scrollPerCard = window.innerHeight;
-            // Total scroll distance needed to go through all cards
-            const totalScrollDistance = scrollPerCard * (totalCards - 1);
+            // Add extra scroll distance to force a pause/buffer at the end
+            const extraScroll = scrollPerCard;
+            const totalScrollDistance = (scrollPerCard * (totalCards - 1)) + extraScroll;
 
             // Set initial state: all cards start at the same position
             // Card 1 is visible, others are hidden below (via translateY)
@@ -225,74 +234,61 @@ export default function FeatureStack() {
                 scrub: 0.5, // Smooth scrubbing
                 onUpdate: (self) => {
                     const scrollProgress = self.progress;
-                    const scrollPos = scrollProgress * totalScrollDistance;
+                    const maxIndex = totalCards - 1;
+                    const rawScrollPos = scrollProgress * (maxIndex + (extraScroll / scrollPerCard));
+                    const scrollPos = Math.min(rawScrollPos, maxIndex);
+
+                    const activeIndex = Math.floor(scrollPos);
 
                     cards.forEach((card, i) => {
-                        // --- LOGIC FOR CARD i BECOMING COVERED (by card i+1) ---
-                        if (i < totalCards - 1) {
-                            const cardStartScroll = i * scrollPerCard;
-                            // Progress of how much the NEXT card has covered THIS card
-                            // 0 = just started being covered, 1 = fully covered
-                            const coverProgress = gsap.utils.clamp(0, 1, (scrollPos - cardStartScroll) / scrollPerCard);
+                        const relativePos = i - scrollPos;
 
-                            if (coverProgress > 0) {
-                                // Card is being covered - move up slightly, scale down
-                                const yOffset = INACTIVE_Y_OFFSET * coverProgress;
-                                const scaleValue = 1 - ((1 - SCALE_WHEN_COVERED) * coverProgress);
-
-                                // Background color: stays black until >50% covered
-                                let bgColor = ACTIVE_BG;
-                                if (coverProgress > OVERLAP_THRESHOLD) {
-                                    // Interpolate from black to grey after 50% coverage
-                                    const greyProgress = (coverProgress - OVERLAP_THRESHOLD) / (1 - OVERLAP_THRESHOLD);
-                                    // Interpolate RGB: black (0,0,0) -> grey (180,180,180)
-                                    const greyValue = Math.round(180 * greyProgress);
-                                    bgColor = `rgb(${greyValue}, ${greyValue}, ${greyValue})`;
-                                }
+                        // --- UPCOMING CARDS (i > scrollPos) ---
+                        if (relativePos > 0) {
+                            if (relativePos <= 1) {
+                                const entryProgress = 1 - relativePos;
+                                const yPos = (1 - entryProgress) * window.innerHeight;
+                                const scale = 0.9 + (0.1 * entryProgress);
+                                const opacity = entryProgress;
 
                                 gsap.set(card, {
-                                    y: yOffset,
-                                    scale: scaleValue,
-                                    backgroundColor: bgColor,
+                                    y: yPos,
+                                    scale: scale,
+                                    zIndex: 100 + i,
+                                    opacity: opacity,
+                                    backgroundColor: ACTIVE_BG,
+                                    pointerEvents: "auto",
                                 });
                             } else {
-                                // Card is actively visible (not covered yet)
                                 gsap.set(card, {
-                                    y: 0,
-                                    scale: 1,
-                                    backgroundColor: ACTIVE_BG,
+                                    y: window.innerHeight,
+                                    opacity: 0,
+                                    pointerEvents: "none"
                                 });
                             }
                         }
 
-                        // --- LOGIC FOR CARD i SLIDING UP (covering card i-1) ---
-                        if (i > 0) {
-                            // This card slides up when scroll reaches position for card i-1
-                            const slideStart = (i - 1) * scrollPerCard;
-                            const slideEnd = i * scrollPerCard;
+                        // --- STACKED/ACTIVE CARDS (i <= scrollPos) ---
+                        else {
+                            const depth = -relativePos;
+                            const Y_OFFSET_PER_LEVEL = 12;
+                            const SCALE_OFFSET_PER_LEVEL = 0.05;
 
-                            // Calculate slide progress (0 = below viewport, 1 = in position)
-                            if (scrollPos < slideStart) {
-                                // Before slide starts - keep below viewport
-                                gsap.set(card, { y: window.innerHeight });
-                            } else if (scrollPos >= slideStart && scrollPos <= slideEnd) {
-                                // Sliding up
-                                const slideProgress = (scrollPos - slideStart) / scrollPerCard;
-                                // Map 0->1 progress to WindowHeight->0 y-position
-                                const yPos = window.innerHeight * (1 - slideProgress);
-                                gsap.set(card, {
-                                    y: yPos,
-                                    scale: 1,
-                                    backgroundColor: ACTIVE_BG,
-                                });
-                            } else if (scrollPos > slideEnd) {
-                                // Fully slid up - now it will be handled by the "being covered" logic above
-                                // if it is not the last card.
-                                // If it is the last card, it just stays there.
-                                if (i === totalCards - 1) {
-                                    gsap.set(card, { y: 0, scale: 1, backgroundColor: ACTIVE_BG });
-                                }
-                            }
+                            const targetY = -1 * depth * Y_OFFSET_PER_LEVEL;
+                            const targetScale = 1 - (depth * SCALE_OFFSET_PER_LEVEL);
+
+                            const rawGrey = Math.min(depth, 5) * 40;
+                            const greyVal = Math.round(rawGrey);
+                            const colorString = `rgb(${greyVal}, ${greyVal}, ${greyVal})`;
+
+                            gsap.set(card, {
+                                y: targetY,
+                                scale: targetScale,
+                                zIndex: 100 - Math.round(depth),
+                                backgroundColor: colorString,
+                                opacity: 1,
+                                pointerEvents: depth > 0.5 ? "none" : "auto",
+                            });
                         }
                     });
                 },
@@ -321,8 +317,7 @@ export default function FeatureStack() {
             {/* Height must be enough to show one full card */}
             <div
                 ref={cardsContainerRef}
-                className="scheduling-cards relative w-full flex items-center justify-center overflow-hidden -mt-4"
-                style={{ height: '100vh', maxHeight: '100vh' }}
+                className="scheduling-cards relative w-full flex items-center justify-center overflow-visible pt-8 h-[100vh] px-4 md:px-0"
             >
                 {features.map((feature, i) => (
                     <FeatureCard

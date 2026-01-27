@@ -2,7 +2,7 @@ import React from "react";
 
 const BusinessImpact = () => {
     return (
-        <section className="bg-white text-black py-20 px-6 lg:px-[93px] max-w-[1440px] mx-auto">
+        <section className="bg-white text-black py-20 px-6 lg:px-[93px] max-w-[1600px] mx-auto">
             {/* Header Section */}
             <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-12 mb-16">
                 <div className="max-w-[800px]">

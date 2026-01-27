@@ -29,7 +29,7 @@ const featuresData = [
 
 export default function Features() {
     return (
-        <section className="bg-white text-black py-20 px-6 lg:px-[93px] max-w-[1440px] mx-auto border-t border-black">
+        <section className="bg-white text-black py-20 px-6 lg:px-[93px] max-w-[1600px] mx-auto border-t border-black">
             {/* Header */}
             <div className="mb-16">
                 <span className="font-body text-[20px] font-semibold text-[#03c] mb-4 block tracking-[-0.1px]">
@@ -53,7 +53,7 @@ export default function Features() {
                                 We'll keep it empty/white with a defined aspect ratio or height. 
                             */}
                             <div className="w-full h-[240px] bg-white border-b border-black relative">
-                                <div className="absolute bottom-0 left-0 bg-[#03c] text-white font-heading font-medium text-[28px] w-[90px] h-[72px] flex items-center justify-center">
+                                <div className="absolute bottom-0 left-0 bg-[#03c] text-white font-heading font-medium text-[28px] w-[90px] h-[72px] flex items-center justify-center border-t border-r border-black">
                                     {feature.id}
                                 </div>
                             </div>

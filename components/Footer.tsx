@@ -46,7 +46,7 @@ export default function Footer() {
                                 />
                             </div>
                             <p className="font-body text-[14px] text-gray-400 mb-2">Powered by XPL</p>
-                            <p className="font-body text-[16px] text-gray-300">AI-Powered Fashion Tech</p>
+                            <p className="font-heading text-[14px] font-normal text-white leading-[26px] tracking-[-0.1px]">AI-Powered Fashion Tech</p>
                         </div>
 
                         {/* Vertical Divider (Desktop only) */}
@@ -100,13 +100,17 @@ export default function Footer() {
                             <div className="border-t border-white"></div>
 
                             {/* Bottom: Legal */}
-                            <div className="p-8 lg:p-12 pl-8 lg:pl-16 flex gap-24 items-center">
-                                <a href="#" className="font-body text-[13px] text-gray-400 hover:text-white transition-colors">
-                                    Terms of service
-                                </a>
-                                <a href="#" className="font-body text-[13px] text-gray-400 hover:text-white transition-colors">
-                                    Privacy policy
-                                </a>
+                            <div className="p-8 lg:p-12 pl-8 lg:pl-16 grid grid-cols-2 gap-12">
+                                <div>
+                                    <a href="#" className="font-heading text-[14px] font-normal text-white leading-[26px] tracking-[-0.1px] hover:opacity-80 transition-opacity">
+                                        Terms of service
+                                    </a>
+                                </div>
+                                <div>
+                                    <a href="#" className="font-heading text-[14px] font-normal text-white leading-[26px] tracking-[-0.1px] hover:opacity-80 transition-opacity">
+                                        Privacy policy
+                                    </a>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -114,7 +118,7 @@ export default function Footer() {
                     {/* Copyright Bar */}
                     <div className="px-12 pb-8 pt-4">
                         <div className="pt-4">
-                            <p className="font-body text-[12px] text-gray-500">
+                            <p className="font-heading text-[14px] font-bold text-white leading-[26px] tracking-[-0.1px]">
                                 © 2024 Xapien Innovatus. All rights reserved.
                             </p>
                         </div>
