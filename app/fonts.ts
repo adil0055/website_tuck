@@ -77,11 +77,18 @@ export const figtree = localFont({
 });
 
 // JetBrains Mono - Metrics / Numbers (from Google Fonts)
-import { JetBrains_Mono } from "next/font/google";
+import { JetBrains_Mono, Inter } from "next/font/google";
 
 export const jetbrainsMono = JetBrains_Mono({
     subsets: ["latin"],
-    weight: ["400", "600"],
+    weight: ["400", "500", "600"],
     variable: "--font-jetbrains-mono",
+    display: "swap",
+});
+
+export const inter = Inter({
+    subsets: ["latin"],
+    weight: ["400", "500", "600", "700"],
+    variable: "--font-inter",
     display: "swap",
 });

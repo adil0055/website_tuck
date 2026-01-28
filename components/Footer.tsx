@@ -15,11 +15,10 @@ export default function Footer({ showCta = true }: FooterProps) {
                 <div className="bg-[#0033cc] text-white py-20 px-6 lg:px-[93px]">
                     <div className="max-w-[1440px] mx-auto">
                         <h2 className="font-heading text-[48px] lg:text-[56px] font-bold leading-[1.1] mb-6 tracking-[-1px]">
-                            Size returns. Dead stock. Lost sales.
+                            Sell more by letting customers try more.
                         </h2>
                         <p className="font-body text-[18px] lg:text-[20px] leading-[1.6] mb-10 max-w-[800px] text-blue-100">
-                            Tuck's kiosk solves all three. Reduce returns by 22%, convert more browsers, and
-                            maximize your inventory ROI.
+                            Trial experiences often limit how much customers can explore. Tuck helps retailers remove that friction and improve conversion.
                         </p>
                         <div className="flex flex-wrap items-center gap-4">
                             <Link href="/contact" className="font-body font-medium bg-black text-white px-8 py-3 hover:bg-neutral-800 transition-colors text-[15px]">

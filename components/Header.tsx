@@ -8,9 +8,33 @@ import tuckLogo from "../Tuck_Primary 4.png";
 
 export default function Header() {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = React.useState(false);
+    const [isVisible, setIsVisible] = React.useState(true);
+    const lastScrollY = React.useRef(0);
+
+    React.useEffect(() => {
+        const handleScroll = () => {
+            const currentScrollY = window.scrollY;
+
+            // Show if at the top or scrolling up
+            if (currentScrollY === 0 || currentScrollY < lastScrollY.current) {
+                setIsVisible(true);
+            } else if (currentScrollY > lastScrollY.current && currentScrollY > 100) {
+                // Hide if scrolling down and past 100px
+                setIsVisible(false);
+            }
+
+            lastScrollY.current = currentScrollY;
+        };
+
+        window.addEventListener("scroll", handleScroll, { passive: true });
+        return () => window.removeEventListener("scroll", handleScroll);
+    }, []);
 
     return (
-        <header className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm border-b border-gray-200/50">
+        <header
+            className={`fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm border-b border-gray-200/50 transition-transform duration-300 ${isVisible ? "translate-y-0" : "-translate-y-full"
+                }`}
+        >
             <div className="max-w-[1440px] mx-auto px-8 py-5 flex items-center justify-between">
                 {/* Logo - Tuck_Primary 4.png */}
                 <Link href="/" className="relative h-[45px] w-[105px]">

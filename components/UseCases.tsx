@@ -82,7 +82,7 @@ export default function UseCases() {
                                 className="font-body text-[20px] lg:text-[22px] font-normal leading-[28px] mb-8 max-w-[689px]"
                                 data-node-id="40:1365"
                             >
-                                Large retail formats often suffer from stockouts and messy piles of clothes. The Tuck Kiosk allows customers to virtually try on sizes or color variants that are currently out of stock or kept in the warehouse.
+                                Large retail formats often suffer from stockouts and messy piles of clothes. The Tuck Magic Mirror allows customers to virtually try on sizes or color variants that are currently out of stock or kept in the warehouse.
                             </p>
 
                             {/* Buttons */}

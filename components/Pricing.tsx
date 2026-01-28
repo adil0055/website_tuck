@@ -10,7 +10,7 @@ export default function Pricing() {
             name: "Starter",
             price: billingCycle === "monthly" ? "10.99" : "109.90",
             originalPrice: billingCycle === "monthly" ? "16.00" : "192.00",
-            discount: "31% OFF",
+            discount: billingCycle === "monthly" ? "31% OFF" : "43% OFF",
             features: billingCycle === "monthly" ? [
                 "400 try-ons / month",
                 "$0.027 per try-on",
@@ -28,7 +28,7 @@ export default function Pricing() {
             name: "Growth",
             price: billingCycle === "monthly" ? "19.99" : "199.90",
             originalPrice: billingCycle === "monthly" ? "40.00" : "480.00",
-            discount: "50% OFF",
+            discount: billingCycle === "monthly" ? "50% OFF" : "58% OFF",
             features: billingCycle === "monthly" ? [
                 "1,000 try-ons / month",
                 "$0.020 per try-on",
@@ -46,7 +46,7 @@ export default function Pricing() {
             name: "Scale",
             price: billingCycle === "monthly" ? "35.99" : "359.90",
             originalPrice: billingCycle === "monthly" ? "80.00" : "960.00",
-            discount: "55% OFF",
+            discount: billingCycle === "monthly" ? "55% OFF" : "63% OFF",
             features: billingCycle === "monthly" ? [
                 "2000 try-ons / month",
                 "$0.018 per try-on",
@@ -107,69 +107,104 @@ export default function Pricing() {
                 </div>
 
                 {/* Grid */}
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 items-start">
-                    {plans.map((plan, index) => (
-                        <div
-                            key={index}
-                            className="relative border border-black p-8 h-full flex flex-col bg-white text-black"
-                        >
-                            {plan.bestValue && (
-                                <div className="absolute -top-[24px] -right-[1px] bg-[#0033cc] text-white text-[12px] font-medium px-4 py-1">
-                                    Best value
-                                </div>
-                            )}
-
-                            <div className="flex items-center gap-4 mb-2">
-                                <h3 className="font-heading text-[24px] font-medium leading-[120%] text-black">{plan.name}</h3>
-                                {(billingCycle !== "annual" && (plan.name === "Starter" || plan.name === "Growth" || plan.name === "Scale")) && (
-                                    <span className="bg-[#5c8aff] text-white text-[10px] font-medium leading-[150%] px-2 py-0.5 font-body">
-                                        {plan.discount}
-                                    </span>
-                                )}
-                            </div>
-
-                            <div className="flex items-center gap-3 mb-6">
-                                <span className="font-heading text-[32px] font-medium text-black">
-                                    ${plan.price}
-                                </span>
-                                <span className="relative font-body text-[20px] font-medium leading-[120%] text-black">
-                                    ${plan.originalPrice}
-                                    <span className="absolute left-0 top-1/2 w-full h-[1px] bg-black -translate-y-1/2"></span>
-                                </span>
-                            </div>
-
-                            <ul className="space-y-3 mb-8 flex-1">
-                                {plan.features.map((feature, i) => (
-                                    <li key={i} className="font-body text-[14px] font-medium leading-[140%] text-black">
-                                        {feature}
-                                    </li>
-                                ))}
-                            </ul>
-
-                            <button
-                                className="w-full py-3 border text-[16px] font-medium leading-[150%] transition-colors bg-transparent text-black border-black hover:bg-black hover:text-white font-body"
+                <div className="flex flex-wrap justify-center gap-12 items-start mt-12">
+                    {plans.map((plan, index) => {
+                        const isScale = plan.name === "Scale";
+                        return (
+                            <div
+                                key={index}
+                                className={`relative border border-black p-6 flex flex-col ${isScale ? "bg-black text-white" : "bg-white text-black"}`}
+                                style={{ width: '292px', height: '329px' }}
                             >
-                                {plan.buttonText}
-                            </button>
-                        </div>
-                    ))}
+                                {/* Introductory Pricing Tag for specific plans */}
+                                {(plan.name === "Starter" || plan.name === "Growth" || isScale) && (
+                                    <div className="absolute -top-[32px] left-[-1px] bg-[#0033cc] text-white text-[10px] font-bold px-4 py-2 uppercase tracking-wide">
+                                        INTRODUCTORY PRICING
+                                    </div>
+                                )}
+
+                                {plan.bestValue && (
+                                    <div className="absolute -top-[32px] right-[-1px] bg-[#0033cc] text-white text-[12px] font-medium px-4 py-2">
+                                        Best value
+                                    </div>
+                                )}
+
+                                <div className="flex items-center gap-4 mb-2">
+                                    <h3
+                                        className={`font-heading text-[24px] font-medium leading-[120%] ${isScale ? "text-white" : "text-black"}`}
+                                    >
+                                        {plan.name}
+                                    </h3>
+                                    {(billingCycle !== "annual" && (plan.name === "Starter" || plan.name === "Growth" || plan.name === "Scale")) && (
+                                        <span className={`text-white text-[10px] font-medium leading-[150%] px-2 py-0.5 font-body ${isScale ? "bg-[#0033cc]" : "bg-[#0033cc]"}`}>
+                                            {plan.discount}
+                                        </span>
+                                    )}
+                                </div>
+
+                                <div className="flex items-center gap-3 mb-6">
+                                    <span className={`font-inter text-[32px] font-medium leading-[120%] ${isScale ? "text-white" : "text-black"}`}>
+                                        ${plan.price}
+                                    </span>
+                                    <span className={`relative font-body text-[20px] font-medium leading-[120%] ${isScale ? "text-gray-400" : "text-black"}`}>
+                                        ${plan.originalPrice}
+                                        <span className={`absolute left-0 top-1/2 w-full h-[1px] -translate-y-1/2 ${isScale ? "bg-white" : "bg-black"}`}></span>
+                                    </span>
+                                </div>
+
+                                <ul className="space-y-1 mb-8 flex-1">
+                                    {plan.features.map((feature, i) => (
+                                        <li
+                                            key={i}
+                                            className={`font-inter text-[14px] font-medium leading-[140%] ${isScale ? "text-white" : "text-black"}`}
+                                        >
+                                            {feature}
+                                        </li>
+                                    ))}
+                                </ul>
+
+                                <div className="flex justify-center w-full">
+                                    <button
+                                        className={`flex items-center justify-center gap-2 border text-[16px] font-medium leading-[150%] transition-colors font-inter ${isScale
+                                            ? "bg-white text-black border-white hover:bg-gray-200"
+                                            : "bg-transparent text-black border-black hover:bg-black hover:text-white"
+                                            }`}
+                                        style={{ width: '243px', height: '40px', padding: '8px 18px' }}
+                                    >
+                                        {plan.buttonText}
+                                    </button>
+                                </div>
+                            </div>
+                        );
+                    })}
 
                     {/* Enterprise Card */}
-                    <div className="border border-black p-8 h-full flex flex-col bg-white text-black">
-                        <div className="mb-6">
-                            <h3 className="font-heading text-[24px] font-medium mb-1">Enterprise</h3>
-                            <h2 className="font-heading text-[32px] font-medium">Custom</h2>
+                    <div
+                        className="relative border border-black p-6 flex flex-col bg-white text-black"
+                        style={{ width: '292px', height: '329px' }}
+                    >
+                        <div className="flex items-center gap-4 mb-2">
+                            <h3 className="font-heading text-[24px] font-medium leading-[120%] text-black">Enterprise</h3>
                         </div>
 
-                        <ul className="space-y-3 mb-8 flex-1">
-                            <li className="font-body text-[14px]">Custom pricing</li>
-                            <li className="font-body text-[14px]">Volume discounts</li>
-                            <li className="font-body text-[14px]">Dedicated support & deployment</li>
+                        <div className="flex items-center gap-3 mb-6">
+                            <h2 className="font-inter text-[32px] font-medium leading-[120%] text-black">Custom</h2>
+                        </div>
+
+                        <ul className="space-y-1 mb-8 flex-1">
+                            <li className="font-inter text-[14px] font-medium leading-[140%] text-black">Custom pricing</li>
+                            <li className="font-inter text-[14px] font-medium leading-[140%] text-black">Volume discounts</li>
+                            <li className="font-inter text-[14px] font-medium leading-[140%] text-black">Dedicated support & deployment</li>
                         </ul>
 
-                        <button className="w-full py-3 font-medium border border-black text-[15px] bg-transparent text-black hover:bg-black hover:text-white transition-colors">
-                            Contact Sales
-                        </button>
+                        <div className="flex justify-center w-full">
+                            <button
+                                className="flex items-center justify-center gap-2 border text-[16px] font-medium leading-[150%] transition-colors font-inter bg-transparent text-black border-black hover:bg-black hover:text-white"
+                                style={{ width: '243px', height: '40px', padding: '8px 18px' }}
+                            >
+                                Contact Sales
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>

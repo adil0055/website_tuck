@@ -30,13 +30,13 @@ const BusinessImpact = () => {
                 <div className="relative">
                     <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-0 relative">
                         {/* Three Separate Horizontal Line Segments with gaps at intersections */}
-                        <div className="hidden lg:block absolute left-0 top-0 h-[5px] bg-black" style={{width: 'calc(33.333% - 2.5px)'}}></div>
-                        <div className="hidden lg:block absolute top-0 h-[5px] bg-black" style={{left: 'calc(33.333% + 7.5px)', width: 'calc(33.333% - 10px)'}}></div>
-                        <div className="hidden lg:block absolute top-0 h-[5px] bg-black" style={{left: 'calc(66.666% + 7.5px)', width: 'calc(33.334% - 7.5px)'}}></div>
+                        <div className="hidden lg:block absolute left-0 top-0 h-[5px] bg-black" style={{ width: 'calc(33.333% - 2.5px)' }}></div>
+                        <div className="hidden lg:block absolute top-0 h-[5px] bg-black" style={{ left: 'calc(33.333% + 7.5px)', width: 'calc(33.333% - 10px)' }}></div>
+                        <div className="hidden lg:block absolute top-0 h-[5px] bg-black" style={{ left: 'calc(66.666% + 7.5px)', width: 'calc(33.334% - 7.5px)' }}></div>
 
                         {/* Two Vertical Lines */}
-                        <div className="hidden lg:block absolute top-[5px] w-[5px] bg-black" style={{left: '33.333%', height: 'calc(100% - 5px)'}}></div>
-                        <div className="hidden lg:block absolute top-[5px] w-[5px] bg-black" style={{left: '66.666%', height: 'calc(100% - 5px)'}}></div>
+                        <div className="hidden lg:block absolute top-[5px] w-[5px] bg-black" style={{ left: '33.333%', height: 'calc(100% - 5px)' }}></div>
+                        <div className="hidden lg:block absolute top-[5px] w-[5px] bg-black" style={{ left: '66.666%', height: 'calc(100% - 5px)' }}></div>
 
                         {/* Metric 1 */}
                         <div className="pt-12 pb-4 lg:pr-12">
@@ -66,9 +66,9 @@ const BusinessImpact = () => {
 
                         {/* Metric 3 */}
                         <div className="pt-12 pb-4 lg:pl-12">
-                            <h3 className="font-heading text-[80px] font-bold mb-2 tracking-[-2px] text-[#2057F3] leading-none">+9%</h3>
+                            <h3 className="font-heading text-[80px] font-bold mb-2 tracking-[-2px] text-[#2057F3] leading-none">+20%</h3>
                             <p className="font-heading text-[20px] font-bold mb-6 tracking-wide text-black">
-                                Revenue per visitor
+                                Upsell capability
                             </p>
                             <p className="font-body text-[16px] font-medium text-black leading-[25.2px] max-w-[300px]">
                                 Same store traffic, higher revenue. Tuck unlocks hidden purchasing

@@ -27,7 +27,7 @@ export default function TermsOfUsePage() {
                     <div>
                         <h2 className="font-heading text-[20px] font-bold mb-4">1. Agreement to Terms</h2>
                         <p>
-                            These Terms constitute a legally binding agreement between you ("User") and Xapien Innovatus Private Limited (CIN: U62090KL2025PTC092495). By accessing tucknow.com, interacting with a Tuck Kiosk, or using the Tuck API, you accept these Terms.
+                            These Terms constitute a legally binding agreement between you ("User") and Xapien Innovatus Private Limited (CIN: U62090KL2025PTC092495). By accessing tucknow.com, interacting with a Tuck Magic Mirror, or using the Tuck API, you accept these Terms.
                         </p>
                     </div>
 

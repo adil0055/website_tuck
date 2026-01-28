@@ -2,6 +2,7 @@
 
 import React from "react";
 import Link from "next/link";
+import Image from "next/image";
 
 export default function Hero() {
     return (
@@ -45,9 +46,23 @@ export default function Hero() {
                 }
             `}</style>
 
+            {/* Background Image - Replaces Image Sequence */}
+            <div className="absolute inset-0 w-full h-full pointer-events-none z-0">
+                <Image
+                    src="/hero-bg.webp"
+                    alt="Hero Background"
+                    fill
+                    className="object-cover"
+                    priority
+                    unoptimized
+                />
+            </div>
+
             {/* Decorative Blur Ellipses - Group 228 (node 40:911) */}
-            {/* Positioned behind grid and content */}
-            <div className="absolute inset-0 w-full h-full pointer-events-none overflow-hidden">
+            {/* Positioned behind background image if transparent, or removed if background is opaque. 
+                Keeping them as layer -10 just in case background has transparency or user wants them. 
+                If background is opaque, these won't be seen. */}
+            <div className="absolute inset-0 w-full h-full pointer-events-none overflow-hidden -z-10">
                 {/* Ellipse 25 - Blue blur top-center-right (40:912) */}
                 <div
                     className="absolute rounded-full"
@@ -112,34 +127,6 @@ export default function Hero() {
                 />
             </div>
 
-            {/* Responsive Grid Background using CSS Grid */}
-            <div
-                className="absolute inset-0 w-full h-full pointer-events-none"
-                style={{
-                    display: 'grid',
-                    gridTemplateColumns: 'repeat(auto-fill, minmax(min(4.4vw, 63px), 1fr))',
-                    gridAutoRows: 'minmax(min(3.6vw, 52px), auto)',
-                    gap: '0',
-                }}
-            >
-                {/* Generate grid cells dynamically based on viewport */}
-                {Array.from({ length: 300 }).map((_, index) => (
-                    <div
-                        key={`cell-${index}`}
-                        className="relative w-full h-full"
-                    >
-                        {/* Backdrop blur gradient effect from Figma Base component */}
-                        <div
-                            className="absolute inset-0 mix-blend-overlay"
-                            style={{
-                                backdropFilter: 'blur(3.5vw)',
-                                background: 'linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(59,59,59,0.2) 16.667%, rgba(255,255,255,0) 100%)',
-                            }}
-                        />
-                    </div>
-                ))}
-            </div>
-
             {/* Content */}
             <div className="relative z-10 max-w-[1440px] mx-auto px-4 sm:px-6 md:px-8 text-center flex flex-col items-center justify-center w-full py-20">
                 {/* Headline - 2 lines, matching Figma design exactly */}
@@ -168,12 +155,14 @@ export default function Hero() {
                     </Link>
                     {/* Learn More button - Rectangle 4215 (32:952) + Text (32:953) */}
                     {/* 132px × 42px, white bg, gray border, 14px text, -0.5px tracking */}
-                    <button
+                    <Link
+                        href="/learn-more"
+                        scroll={false}
                         className="font-body font-bold border border-[rgba(0,0,0,0.54)] text-[rgba(0,0,0,0.54)] text-[14px] tracking-[-0.5px] rounded-none hover:bg-gray-50 transition-all bg-white w-full sm:w-[132px] h-[42px] flex items-center justify-center leading-normal"
                         data-node-id="32:953"
                     >
                         Learn More
-                    </button>
+                    </Link>
                 </div>
             </div>
         </section>

@@ -42,7 +42,7 @@ export default function PrivacyPolicyPage() {
                     <div>
                         <h2 className="font-heading text-[20px] font-bold mb-4">2. Scope & Consent</h2>
                         <p className="mb-4">
-                            By using the Tuck Kiosk, Website (tucknow.com), or API services, you act as the Data Principal and explicitly consent to the collection and processing of your personal and sensitive data for the specific purposes outlined below.
+                            By using the Tuck Magic Mirror, Website (tucknow.com), or API services, you act as the Data Principal and explicitly consent to the collection and processing of your personal and sensitive data for the specific purposes outlined below.
                         </p>
                         <ul className="list-disc pl-5 space-y-2">
                             <li><strong>Consent Manager:</strong> For users under 18, consent must be provided by a lawful guardian.</li>

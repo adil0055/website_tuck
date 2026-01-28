@@ -2,21 +2,21 @@ import React from "react";
 
 const issues = [
     {
-        title: "High Return Rates",
+        title: "Slow Fitting Rooms",
         titleNodeId: "32:956",
-        description: "Size-related returns erode margin on every order. Each wrong fit means wasted logistics, markdowns, and inventory that keeps moving in circles instead of off the shelf.",
+        description: "Shoppers hate waiting. Long lines and slow changing times force them to quit after just three items. You lose revenue because customers physically can't try more.",
         descriptionNodeId: "32:960",
     },
     {
-        title: "Size Uncertainty",
+        title: "The Return Crisis",
         titleNodeId: "32:957",
-        description: "Shoppers don't trust the size chart, so they over-order, under-order, or walk away entirely. Inconsistent fits across brands turn every purchase into a risk, guaranteeing returns and lost sales.",
+        description: "Blind buying drives return rates up to 30%. When shoppers can’t visualize the look & fit, the gap between expectation and reality destroys margins and fuels costly logistics.",
         descriptionNodeId: "32:961",
     },
     {
-        title: "Limited Engagement",
+        title: "Limited In-Store Discovery",
         titleNodeId: "32:958",
-        description: "Flat product pages and basic size guides aren't enough. Without an interactive fit experience, customers skim, bounce, and default to retailers who help them actually see what will work.",
+        description: "Physical browsing is inefficient. Shoppers struggle to find relevant styles in crowded aisles, and limited try-on time caps their basket size, leaving your best inventory unseen.",
         descriptionNodeId: "32:963",
     },
 ];
@@ -59,7 +59,7 @@ export default function DarkFeature() {
                             className="font-body text-[18px] font-normal text-white leading-[29px] tracking-[-0.1px]"
                             data-node-id="32:962"
                         >
-                            Traditional retail still relies on guesswork sizing and static product displays. This disconnect between real bodies and rigid size charts drives hesitation, abandoned carts, costly returns, and lost loyalty.
+                            In-store trials average 5 minutes, causing customer drop-offs after just three items. Online, static displays force guesswork, driving returns to 30% as shoppers struggle to match expectation with reality.
                         </p>
                     </div>
                 </div>

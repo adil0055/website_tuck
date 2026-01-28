@@ -34,6 +34,8 @@ const config: Config = {
                 body: ["var(--font-figtree)", "sans-serif"],
                 // JetBrains Mono - Metrics / Numbers
                 mono: ["var(--font-jetbrains-mono)", "monospace"],
+                // Inter
+                inter: ["var(--font-inter)", "sans-serif"],
             },
         },
     },

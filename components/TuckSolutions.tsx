@@ -58,7 +58,7 @@ export default function TuckSolutions() {
                                             className="font-heading text-[15px] font-bold text-black mb-3 lg:mb-[4px] leading-[26px]"
                                             data-node-id="40:1333"
                                         >
-                                            For ecommerce brands losing carts to size doubt
+                                            For e-commerce brands building instant shopper confidence
                                         </p>
 
                                         {/* Description */}
@@ -66,7 +66,7 @@ export default function TuckSolutions() {
                                             className="font-body text-[17px] font-medium text-black mb-6 lg:mb-[24px] leading-[25.2px] max-w-[471px]"
                                             data-node-id="40:1331"
                                         >
-                                            Tuck's virtual try-on plugin lets shoppers see outfits on themselves right on the product page, turning size doubt into higher conversions and fewer returns.
+                                            Replace "will it look good?" with certainty. Tuck lets shoppers visualize outfits on their own photo instantly, eliminating hesitation to drive higher conversions and fewer returns.
                                         </p>
 
                                         {/* Buttons */}
@@ -78,12 +78,6 @@ export default function TuckSolutions() {
                                             >
                                                 <span data-node-id="40:1339">Book a Demo</span>
                                             </Link>
-                                            <button
-                                                className="font-body font-medium text-black text-[15px] hover:underline"
-                                                data-node-id="40:1335"
-                                            >
-                                                Learn more
-                                            </button>
                                         </div>
                                     </div>
                                 </div>
@@ -116,7 +110,7 @@ export default function TuckSolutions() {
                                             className="font-heading text-[28px] sm:text-[32px] font-semibold text-black mb-4 lg:mb-[6px] leading-[61px] tracking-[-0.1px]"
                                             data-node-id="40:1330"
                                         >
-                                            Tuck Kiosk
+                                            Tuck Magic Mirror
                                         </h3>
 
                                         {/* Subtitle */}
@@ -124,7 +118,7 @@ export default function TuckSolutions() {
                                             className="font-heading text-[15px] font-bold text-black mb-3 lg:mb-[4px] leading-[26px]"
                                             data-node-id="40:1334"
                                         >
-                                            For retailers losing inventory to wrong fits and style mismatches
+                                            For stores fighting slow trials and limited engagement
                                         </p>
 
                                         {/* Description */}
@@ -132,7 +126,7 @@ export default function TuckSolutions() {
                                             className="font-body text-[17px] font-medium text-black mb-6 lg:mb-[24px] leading-[25.2px] max-w-[471px]"
                                             data-node-id="40:1332"
                                         >
-                                            Tuck's in-store kiosk helps customers find pieces that fit and suit them before purchase. Fewer returns, less dead stock, and higher confidence at checkout—turning inventory into revenue.
+                                            Stop losing sales to queues. Tuck allows customers to digitally try dozens of styles in minutes, instantly visualizing what suits them to turn inventory into revenue.
                                         </p>
 
                                         {/* Buttons */}
@@ -144,12 +138,6 @@ export default function TuckSolutions() {
                                             >
                                                 <span data-node-id="40:1340">Book a Demo</span>
                                             </Link>
-                                            <button
-                                                className="font-body font-medium text-black text-[15px] hover:underline"
-                                                data-node-id="40:1336"
-                                            >
-                                                Learn more
-                                            </button>
                                         </div>
                                     </div>
                                 </div>
@@ -173,8 +161,8 @@ export default function TuckSolutions() {
                                 </p>
                             </div>
                             <div className="font-body text-[16px] font-medium text-black leading-[1.5]">
-                                <p>Real-time Processing</p>
-                                <p>Instant virtual try-on results</p>
+                                <p>Real photos with</p>
+                                <p>authentic drape, lighting, and folds.</p>
                             </div>
                         </div>
 
@@ -182,15 +170,15 @@ export default function TuckSolutions() {
                         <div className="px-6 lg:px-[92px] py-12 lg:py-16">
                             <div className="mb-6">
                                 <h3 className="font-heading text-[56px] font-medium leading-[1] tracking-[-1px] text-black mb-1">
-                                    20s
+                                    15s
                                 </h3>
                                 <p className="font-heading text-[20px] font-bold text-black leading-[1.2]">
                                     Speed
                                 </p>
                             </div>
                             <div className="font-body text-[16px] font-medium text-black leading-[1.5]">
-                                <p>Precision Fit</p>
-                                <p>AI-powered body measurements</p>
+                                <p>Instant results under 15s,</p>
+                                <p>outperforming industry speed benchmarks.</p>
                             </div>
                         </div>
 
@@ -205,8 +193,8 @@ export default function TuckSolutions() {
                                 </p>
                             </div>
                             <div className="font-body text-[16px] font-medium text-black leading-[1.5]">
-                                <p>Upto 49% savings</p>
-                                <p>at scale vs competitors</p>
+                                <p>Enterprise-grade precision</p>
+                                <p>at half the price of competitors.</p>
                             </div>
                         </div>
                     </div>

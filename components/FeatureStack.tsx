@@ -29,6 +29,7 @@ interface Feature {
     stat?: string;
     buttonText: string;
     linkText: string;
+    anchorId: string;
 }
 
 // --- Data ---
@@ -39,10 +40,11 @@ const features: Feature[] = [
         title: "Fashion Retail Stores",
         subtitle: "Solution – Tuck Magic Mirror",
         description:
-            "Large retail formats often suffer from stockouts and messy piles of clothes. The Tuck Kiosk allows customers to virtually try on sizes or color variants that are currently out of stock or kept in the warehouse.",
+            "Large retail formats often suffer from stockouts and messy piles of clothes. The Tuck Magic Mirror allows customers to virtually try on sizes or color variants that are currently out of stock or kept in the warehouse.",
         stat: "+18% fitting room conversion",
         buttonText: "Book a Demo",
         linkText: "Learn more",
+        anchorId: "fashion-retail-stores",
     },
     {
         id: "02",
@@ -54,6 +56,7 @@ const features: Feature[] = [
         stat: "",
         buttonText: "Book a Demo",
         linkText: "Learn more",
+        anchorId: "e-commerce-marketplaces",
     },
     {
         id: "03",
@@ -65,6 +68,7 @@ const features: Feature[] = [
         stat: "",
         buttonText: "Book a Demo",
         linkText: "Learn more",
+        anchorId: "single-brand-retail-stores",
     },
     {
         id: "04",
@@ -76,6 +80,7 @@ const features: Feature[] = [
         stat: "",
         buttonText: "Book a Demo",
         linkText: "Learn more",
+        anchorId: "d2c-brands",
     },
     {
         id: "05",
@@ -87,6 +92,7 @@ const features: Feature[] = [
         stat: "",
         buttonText: "Book a Demo",
         linkText: "Learn more",
+        anchorId: "fast-fashion-retailers",
     },
     {
         id: "06",
@@ -98,6 +104,7 @@ const features: Feature[] = [
         stat: "",
         buttonText: "Book a Demo",
         linkText: "Learn more",
+        anchorId: "malls-airports-ad-networks",
     },
     {
         id: "07",
@@ -109,6 +116,7 @@ const features: Feature[] = [
         stat: "",
         buttonText: "Book a Demo",
         linkText: "Learn more",
+        anchorId: "luxury-bespoke-fashion",
     },
 ];
 
@@ -183,9 +191,13 @@ const FeatureCard = ({
                         <Link href="/contact" className="font-body font-semibold bg-white text-black px-6 md:px-8 py-2 text-[14px] md:text-[15px] hover:bg-opacity-90 transition-all h-[40px] md:h-[34px] flex items-center justify-center border border-white w-full sm:w-auto rounded-none">
                             {feature.buttonText}
                         </Link>
-                        <button className="font-body font-medium text-white text-[14px] md:text-[15px] hover:underline leading-[25.2px]">
+                        <Link
+                            href={`/learn-more#${feature.anchorId}`}
+                            scroll={false}
+                            className="font-body font-medium text-white text-[14px] md:text-[15px] hover:underline leading-[25.2px]"
+                        >
                             {feature.linkText} →
-                        </button>
+                        </Link>
                     </div>
                 </div>
             </div>
@@ -249,14 +261,12 @@ export default function FeatureStack() {
                             if (relativePos <= 1) {
                                 const entryProgress = 1 - relativePos;
                                 const yPos = (1 - entryProgress) * window.innerHeight;
-                                const scale = 0.9 + (0.1 * entryProgress);
-                                const opacity = entryProgress;
 
                                 gsap.set(card, {
                                     y: yPos,
-                                    scale: scale,
+                                    scale: 1,
                                     zIndex: 100 + i,
-                                    opacity: opacity,
+                                    opacity: 1,
                                     backgroundColor: ACTIVE_BG,
                                     pointerEvents: "auto",
                                 });
