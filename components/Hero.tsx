@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import Link from "next/link";
 
 export default function Hero() {
     return (
@@ -158,12 +159,13 @@ export default function Hero() {
                 <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-[18px]">
                     {/* Book demo button - Rectangle 4214 (32:951) + Text (32:954) */}
                     {/* 132px × 42px, blue bg, white text, 17px Figtree Bold, -0.5px tracking */}
-                    <button
-                        className="font-body font-bold bg-[#2057F3] text-white text-[17px] tracking-[-0.5px] rounded-none hover:bg-[#1047E3] transition-all w-full sm:w-[135px] h-[42px] flex items-center justify-center leading-normal"
+                    <Link
+                        href="/contact"
+                        className="font-body font-bold bg-[#2057F3] text-white text-[15px] sm:text-[17px] tracking-[-0.5px] rounded-none hover:bg-[#1047E3] transition-all w-full sm:w-[135px] min-h-[42px] h-auto py-2 flex items-center justify-center leading-normal"
                         data-node-id="32:954"
                     >
                         Book demo
-                    </button>
+                    </Link>
                     {/* Learn More button - Rectangle 4215 (32:952) + Text (32:953) */}
                     {/* 132px × 42px, white bg, gray border, 14px text, -0.5px tracking */}
                     <button

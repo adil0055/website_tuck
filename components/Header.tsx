@@ -3,6 +3,7 @@
 import React from "react";
 import Button from "./ui/Button";
 import Image from "next/image";
+import Link from "next/link";
 import tuckLogo from "../Tuck_Primary 4.png";
 
 export default function Header() {
@@ -12,7 +13,7 @@ export default function Header() {
         <header className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm border-b border-gray-200/50">
             <div className="max-w-[1440px] mx-auto px-8 py-5 flex items-center justify-between">
                 {/* Logo - Tuck_Primary 4.png */}
-                <div className="relative h-[45px] w-[105px]">
+                <Link href="/" className="relative h-[45px] w-[105px]">
                     <Image
                         src={tuckLogo}
                         alt="tuck"
@@ -21,22 +22,22 @@ export default function Header() {
                         priority
                         className="object-contain"
                     />
-                </div>
+                </Link>
 
                 {/* Desktop Navigation */}
                 <nav className="hidden md:flex items-center gap-8">
-                    <a href="#product" className="font-body text-[14px] font-medium text-[#161c2d] hover:text-[#161c2d]/70 transition-colors leading-[26px] tracking-[-0.1px]">
+                    <Link href="/#product" className="font-body text-[14px] font-medium text-[#161c2d] hover:text-[#161c2d]/70 transition-colors leading-[26px] tracking-[-0.1px]">
                         Product
-                    </a>
-                    <a href="#pricing" className="font-body text-[14px] font-medium text-[#161c2d] hover:text-[#161c2d]/70 transition-colors leading-[26px] tracking-[-0.1px]">
+                    </Link>
+                    <Link href="/#pricing" className="font-body text-[14px] font-medium text-[#161c2d] hover:text-[#161c2d]/70 transition-colors leading-[26px] tracking-[-0.1px]">
                         Pricing
-                    </a>
-                    <a href="#about" className="font-body text-[14px] font-medium text-[#161c2d] hover:text-[#161c2d]/70 transition-colors leading-[26px] tracking-[-0.1px]">
+                    </Link>
+                    <Link href="/about" className="font-body text-[14px] font-medium text-[#161c2d] hover:text-[#161c2d]/70 transition-colors leading-[26px] tracking-[-0.1px]">
                         About
-                    </a>
-                    <a href="#contact" className="font-body text-[14px] font-medium text-[#161c2d] hover:text-[#161c2d]/70 transition-colors leading-[26px] tracking-[-0.1px]">
+                    </Link>
+                    <Link href="/contact" className="font-body text-[14px] font-medium text-[#161c2d] hover:text-[#161c2d]/70 transition-colors leading-[26px] tracking-[-0.1px]">
                         Contact
-                    </a>
+                    </Link>
                 </nav>
 
                 {/* Mobile Menu Toggle */}
@@ -62,9 +63,9 @@ export default function Header() {
 
                 {/* CTA Buttons - Desktop */}
                 <div className="hidden md:flex items-center gap-4">
-                    <button className="font-body font-medium bg-[#2057F3] text-white rounded-none hover:bg-[#1047E3] transition-all text-[13px] tracking-[-0.5px] w-[135px] h-[42px] flex items-center justify-center">
+                    <Link href="/contact" className="font-body font-medium bg-[#2057F3] text-white rounded-none hover:bg-[#1047E3] transition-all text-[13px] tracking-[-0.5px] w-[135px] h-[42px] flex items-center justify-center">
                         Book demo
-                    </button>
+                    </Link>
                 </div>
             </div>
 
@@ -72,15 +73,15 @@ export default function Header() {
             {isMobileMenuOpen && (
                 <div className="md:hidden absolute top-full left-0 right-0 bg-white border-b border-gray-200/50 shadow-lg px-8 py-6 flex flex-col gap-6">
                     <nav className="flex flex-col gap-4">
-                        <a href="#product" className="font-body text-[16px] font-medium text-[#161c2d]" onClick={() => setIsMobileMenuOpen(false)}>Product</a>
-                        <a href="#pricing" className="font-body text-[16px] font-medium text-[#161c2d]" onClick={() => setIsMobileMenuOpen(false)}>Pricing</a>
-                        <a href="#about" className="font-body text-[16px] font-medium text-[#161c2d]" onClick={() => setIsMobileMenuOpen(false)}>About</a>
-                        <a href="#contact" className="font-body text-[16px] font-medium text-[#161c2d]" onClick={() => setIsMobileMenuOpen(false)}>Contact</a>
+                        <Link href="/#product" className="font-body text-[16px] font-medium text-[#161c2d]" onClick={() => setIsMobileMenuOpen(false)}>Product</Link>
+                        <Link href="/#pricing" className="font-body text-[16px] font-medium text-[#161c2d]" onClick={() => setIsMobileMenuOpen(false)}>Pricing</Link>
+                        <Link href="/about" className="font-body text-[16px] font-medium text-[#161c2d]" onClick={() => setIsMobileMenuOpen(false)}>About</Link>
+                        <Link href="/contact" className="font-body text-[16px] font-medium text-[#161c2d]" onClick={() => setIsMobileMenuOpen(false)}>Contact</Link>
                     </nav>
                     <div className="flex flex-col gap-3">
-                        <button className="font-body font-medium bg-[#2057F3] text-white rounded-none hover:bg-[#1047E3] transition-all text-[15px] tracking-[-0.5px] py-3 flex items-center justify-center">
+                        <Link href="/contact" className="font-body font-medium bg-[#2057F3] text-white rounded-none hover:bg-[#1047E3] transition-all text-[15px] tracking-[-0.5px] py-3 flex items-center justify-center" onClick={() => setIsMobileMenuOpen(false)}>
                             Book demo
-                        </button>
+                        </Link>
                     </div>
                 </div>
             )}

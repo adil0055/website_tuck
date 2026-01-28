@@ -4,6 +4,7 @@ import React, { useRef, useLayoutEffect } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import clsx from "clsx";
+import Link from "next/link";
 
 // Register ScrollTrigger plugin
 gsap.registerPlugin(ScrollTrigger);
@@ -144,7 +145,7 @@ const FeatureCard = ({
             `}</style>
 
             {/* Content */}
-            <div className="relative z-10 flex flex-col h-full justify-between gap-6 md:gap-0">
+            <div className="relative z-10 flex flex-col h-full justify-start md:justify-between gap-10 md:gap-0">
                 {/* Top Section: Index and Title/Subtitle */}
                 <div className="flex flex-col md:flex-row items-start gap-4 md:gap-12">
                     {/* Index Number - Left Side */}
@@ -179,9 +180,9 @@ const FeatureCard = ({
 
                     {/* Buttons */}
                     <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 md:gap-8">
-                        <button className="font-body font-semibold bg-white text-black px-6 md:px-8 py-2 text-[14px] md:text-[15px] hover:bg-opacity-90 transition-all h-[40px] md:h-[34px] flex items-center justify-center border border-white w-full sm:w-auto rounded-none">
+                        <Link href="/contact" className="font-body font-semibold bg-white text-black px-6 md:px-8 py-2 text-[14px] md:text-[15px] hover:bg-opacity-90 transition-all h-[40px] md:h-[34px] flex items-center justify-center border border-white w-full sm:w-auto rounded-none">
                             {feature.buttonText}
-                        </button>
+                        </Link>
                         <button className="font-body font-medium text-white text-[14px] md:text-[15px] hover:underline leading-[25.2px]">
                             {feature.linkText} →
                         </button>

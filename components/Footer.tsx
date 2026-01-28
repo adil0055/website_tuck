@@ -1,33 +1,40 @@
 import React from "react";
 import Image from "next/image";
-import tuckLogo from "../Tuck_Primary 4.png"; // Reusing the logo asset
+import Link from "next/link";
+import tuckLogo from "../Tuck_Primary 4.png";
 
-export default function Footer() {
+interface FooterProps {
+    showCta?: boolean;
+}
+
+export default function Footer({ showCta = true }: FooterProps) {
     return (
         <footer className="w-full">
             {/* Blue CTA Section */}
-            <div className="bg-[#0033cc] text-white py-20 px-6 lg:px-[93px]">
-                <div className="max-w-[1440px] mx-auto">
-                    <h2 className="font-heading text-[48px] lg:text-[56px] font-bold leading-[1.1] mb-6 tracking-[-1px]">
-                        Size returns. Dead stock. Lost sales.
-                    </h2>
-                    <p className="font-body text-[18px] lg:text-[20px] leading-[1.6] mb-10 max-w-[800px] text-blue-100">
-                        Tuck's kiosk solves all three. Reduce returns by 22%, convert more browsers, and
-                        maximize your inventory ROI.
-                    </p>
-                    <div className="flex flex-wrap items-center gap-4">
-                        <button className="font-body font-medium bg-black text-white px-8 py-3 hover:bg-neutral-800 transition-colors text-[15px]">
-                            Book Demo
-                        </button>
-                        <button className="font-body font-medium bg-white text-black px-8 py-3 hover:bg-gray-100 transition-colors text-[15px]">
-                            Talk to sales
-                        </button>
+            {showCta && (
+                <div className="bg-[#0033cc] text-white py-20 px-6 lg:px-[93px]">
+                    <div className="max-w-[1440px] mx-auto">
+                        <h2 className="font-heading text-[48px] lg:text-[56px] font-bold leading-[1.1] mb-6 tracking-[-1px]">
+                            Size returns. Dead stock. Lost sales.
+                        </h2>
+                        <p className="font-body text-[18px] lg:text-[20px] leading-[1.6] mb-10 max-w-[800px] text-blue-100">
+                            Tuck's kiosk solves all three. Reduce returns by 22%, convert more browsers, and
+                            maximize your inventory ROI.
+                        </p>
+                        <div className="flex flex-wrap items-center gap-4">
+                            <Link href="/contact" className="font-body font-medium bg-black text-white px-8 py-3 hover:bg-neutral-800 transition-colors text-[15px]">
+                                Book Demo
+                            </Link>
+                            <button className="font-body font-medium bg-white text-black px-8 py-3 hover:bg-gray-100 transition-colors text-[15px]">
+                                Talk to sales
+                            </button>
+                        </div>
                     </div>
                 </div>
-            </div>
+            )}
 
             {/* Content Spacer area (White space in screenshot) */}
-            <div className="bg-white h-4 w-full"></div>
+            {showCta && <div className="bg-white h-4 w-full"></div>}
 
             {/* Black Footer Island */}
             <div className="bg-white px-2 lg:px-2 pb-2">
@@ -102,14 +109,14 @@ export default function Footer() {
                             {/* Bottom: Legal */}
                             <div className="p-8 lg:p-12 pl-8 lg:pl-16 grid grid-cols-2 gap-12">
                                 <div>
-                                    <a href="#" className="font-heading text-[14px] font-normal text-white leading-[26px] tracking-[-0.1px] hover:opacity-80 transition-opacity">
+                                    <Link href="/terms-of-use" className="font-heading text-[14px] font-normal text-white leading-[26px] tracking-[-0.1px] hover:opacity-80 transition-opacity">
                                         Terms of service
-                                    </a>
+                                    </Link>
                                 </div>
                                 <div>
-                                    <a href="#" className="font-heading text-[14px] font-normal text-white leading-[26px] tracking-[-0.1px] hover:opacity-80 transition-opacity">
+                                    <Link href="/privacy-policy" className="font-heading text-[14px] font-normal text-white leading-[26px] tracking-[-0.1px] hover:opacity-80 transition-opacity">
                                         Privacy policy
-                                    </a>
+                                    </Link>
                                 </div>
                             </div>
                         </div>

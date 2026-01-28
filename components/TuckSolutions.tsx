@@ -1,8 +1,9 @@
 import React from "react";
+import Link from "next/link";
 
 export default function TuckSolutions() {
     return (
-        <section className="bg-white" data-node-id="40:1304">
+        <section id="product" className="bg-white" data-node-id="40:1304">
             {/* Top Section Wrapper - Constrained Width to match Metrics */}
             <div className="w-full border-b border-black">
                 <div className="max-w-[1600px] mx-auto border-x border-black">
@@ -70,12 +71,13 @@ export default function TuckSolutions() {
 
                                         {/* Buttons */}
                                         <div className="flex flex-wrap items-center gap-3 lg:gap-[29px]">
-                                            <button
+                                            <Link
+                                                href="/contact"
                                                 className="font-body font-semibold bg-black text-white px-6 py-2 text-[15px] hover:bg-opacity-90 transition-all h-[34px] flex items-center justify-center"
                                                 data-node-id="40:1337"
                                             >
                                                 <span data-node-id="40:1339">Book a Demo</span>
-                                            </button>
+                                            </Link>
                                             <button
                                                 className="font-body font-medium text-black text-[15px] hover:underline"
                                                 data-node-id="40:1335"
@@ -135,12 +137,13 @@ export default function TuckSolutions() {
 
                                         {/* Buttons */}
                                         <div className="flex flex-wrap items-center gap-3 lg:gap-[29px]">
-                                            <button
+                                            <Link
+                                                href="/contact"
                                                 className="font-body font-semibold bg-black text-white px-6 py-2 text-[15px] hover:bg-opacity-90 transition-all h-[34px] flex items-center justify-center"
                                                 data-node-id="40:1338"
                                             >
                                                 <span data-node-id="40:1340">Book a Demo</span>
-                                            </button>
+                                            </Link>
                                             <button
                                                 className="font-body font-medium text-black text-[15px] hover:underline"
                                                 data-node-id="40:1336"
