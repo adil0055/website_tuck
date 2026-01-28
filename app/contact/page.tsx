@@ -1,10 +1,43 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
 
 export default function ContactPage() {
+    const [isLoading, setIsLoading] = useState(false);
+    const [status, setStatus] = useState<"idle" | "success" | "error">("idle");
+
+    async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
+        event.preventDefault();
+        setIsLoading(true);
+        setStatus("idle");
+
+        const form = event.currentTarget;
+        const formData = new FormData(form);
+        const data = Object.fromEntries(formData.entries());
+
+        try {
+            const response = await fetch('/api/send', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(data),
+            });
+
+            if (response.ok) {
+                setStatus("success");
+                form.reset();
+            } else {
+                setStatus("error");
+            }
+        } catch (error) {
+            console.error("Submission error:", error);
+            setStatus("error");
+        } finally {
+            setIsLoading(false);
+        }
+    }
+
     return (
         <main className="min-h-screen bg-white">
             <Header />
@@ -24,15 +57,17 @@ export default function ContactPage() {
 
                     {/* Right Column - Form */}
                     <div className="lg:w-2/3 max-w-[800px]">
-                        <form className="flex flex-col gap-6" onSubmit={(e) => e.preventDefault()}>
+                        <form className="flex flex-col gap-6" onSubmit={handleSubmit}>
                             {/* Name */}
                             <div className="flex flex-col gap-2">
                                 <label htmlFor="name" className="font-body text-[14px] font-medium text-[#161c2d]">
-                                    Name
+                                    Name *
                                 </label>
                                 <input
                                     type="text"
                                     id="name"
+                                    name="name"
+                                    required
                                     className="w-full bg-[#f9f9f9] border-none rounded-none p-4 font-body text-[16px] focus:ring-1 focus:ring-gray-300 outline-none"
                                 />
                             </div>
@@ -40,11 +75,13 @@ export default function ContactPage() {
                             {/* Email */}
                             <div className="flex flex-col gap-2">
                                 <label htmlFor="email" className="font-body text-[14px] font-medium text-[#161c2d]">
-                                    Email
+                                    Email *
                                 </label>
                                 <input
                                     type="email"
                                     id="email"
+                                    name="email"
+                                    required
                                     className="w-full bg-[#f9f9f9] border-none rounded-none p-4 font-body text-[16px] focus:ring-1 focus:ring-gray-300 outline-none"
                                 />
                             </div>
@@ -57,6 +94,7 @@ export default function ContactPage() {
                                 <input
                                     type="tel"
                                     id="phone"
+                                    name="phone"
                                     className="w-full bg-[#f9f9f9] border-none rounded-none p-4 font-body text-[16px] focus:ring-1 focus:ring-gray-300 outline-none"
                                 />
                             </div>
@@ -69,6 +107,7 @@ export default function ContactPage() {
                                 <input
                                     type="text"
                                     id="company"
+                                    name="company"
                                     className="w-full bg-[#f9f9f9] border-none rounded-none p-4 font-body text-[16px] focus:ring-1 focus:ring-gray-300 outline-none"
                                 />
                             </div>
@@ -81,6 +120,7 @@ export default function ContactPage() {
                                 <input
                                     type="text"
                                     id="country"
+                                    name="country"
                                     className="w-full bg-[#f9f9f9] border-none rounded-none p-4 font-body text-[16px] focus:ring-1 focus:ring-gray-300 outline-none"
                                 />
                             </div>
@@ -92,16 +132,32 @@ export default function ContactPage() {
                                 </label>
                                 <textarea
                                     id="message"
+                                    name="message"
                                     rows={6}
                                     className="w-full bg-[#f9f9f9] border-none rounded-none p-4 font-body text-[16px] focus:ring-1 focus:ring-gray-300 outline-none resize-none"
                                 ></textarea>
                             </div>
 
-                            {/* Submit Button */}
-                            <div className="mt-4">
-                                <button type="submit" className="w-full bg-[#0033cc] hover:bg-[#002bb0] text-white font-body font-bold text-[16px] py-4 transition-colors">
-                                    Submit
+                            {/* Submit Button & Status */}
+                            <div className="mt-4 flex flex-col gap-4">
+                                <button
+                                    type="submit"
+                                    disabled={isLoading}
+                                    className="w-full bg-[#0033cc] hover:bg-[#002bb0] text-white font-body font-bold text-[16px] py-4 transition-colors disabled:opacity-70 disabled:cursor-not-allowed"
+                                >
+                                    {isLoading ? "Sending..." : "Submit"}
                                 </button>
+
+                                {status === "success" && (
+                                    <p className="text-green-600 font-medium text-center bg-green-50 p-3">
+                                        Thank you! Your message has been sent successfully. We'll be in touch soon.
+                                    </p>
+                                )}
+                                {status === "error" && (
+                                    <p className="text-red-600 font-medium text-center bg-red-50 p-3">
+                                        Something went wrong. Please try again later.
+                                    </p>
+                                )}
                             </div>
                         </form>
                     </div>

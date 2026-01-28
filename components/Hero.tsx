@@ -49,7 +49,7 @@ export default function Hero() {
             {/* Background Image - Replaces Image Sequence */}
             <div className="absolute inset-0 w-full h-full pointer-events-none z-0">
                 <Image
-                    src="/hero-bg.webp"
+                    src="/hero-bg-desktop-17.png"
                     alt="Hero Background"
                     fill
                     className="object-cover"
@@ -58,74 +58,10 @@ export default function Hero() {
                 />
             </div>
 
-            {/* Decorative Blur Ellipses - Group 228 (node 40:911) */}
-            {/* Positioned behind background image if transparent, or removed if background is opaque. 
-                Keeping them as layer -10 just in case background has transparency or user wants them. 
-                If background is opaque, these won't be seen. */}
-            <div className="absolute inset-0 w-full h-full pointer-events-none overflow-hidden -z-10">
-                {/* Ellipse 25 - Blue blur top-center-right (40:912) */}
-                <div
-                    className="absolute rounded-full"
-                    style={{
-                        left: '71.5%',
-                        top: '29%',
-                        width: '14.5vw',
-                        height: '10.5vw',
-                        background: '#407BFF',
-                        filter: 'blur(7vw)',
-                        backdropFilter: 'blur(0.25px)',
-                        animation: 'float-ellipse-25 4s ease-in-out infinite',
-                    }}
-                />
-
-                {/* Ellipse 21 - Gray blur top-right (40:913) */}
-                <div
-                    className="absolute rounded-full"
-                    style={{
-                        left: '96.8%',
-                        top: '43.3%',
-                        width: '22.8vw',
-                        height: '18vw',
-                        background: '#838383',
-                        filter: 'blur(7vw)',
-                        backdropFilter: 'blur(0.25px)',
-                        animation: 'float-ellipse-21 4s ease-in-out infinite',
-                        animationDelay: '1s',
-                    }}
-                />
-
-                {/* Ellipse 20 - Gray blur bottom-left (40:914) */}
-                <div
-                    className="absolute rounded-full"
-                    style={{
-                        left: '-14%',
-                        top: '56%',
-                        width: '22.8vw',
-                        height: '18vw',
-                        background: '#838383',
-                        filter: 'blur(7vw)',
-                        backdropFilter: 'blur(0.25px)',
-                        animation: 'float-ellipse-20 4s ease-in-out infinite',
-                        animationDelay: '2s',
-                    }}
-                />
-
-                {/* Ellipse 24 - Blue blur bottom-left (40:915) */}
-                <div
-                    className="absolute rounded-full"
-                    style={{
-                        left: '-9.7%',
-                        top: '92.3%',
-                        width: '22.8vw',
-                        height: '18vw',
-                        background: '#407BFF',
-                        filter: 'blur(7vw)',
-                        backdropFilter: 'blur(0.25px)',
-                        animation: 'float-ellipse-24 4s ease-in-out infinite',
-                        animationDelay: '3s',
-                    }}
-                />
-            </div>
+            {/* Decorative Blur Ellipses - Removed as per new design request using full background image */}
+            {/* <div className="absolute inset-0 w-full h-full pointer-events-none overflow-hidden -z-10">
+                ... (Ellipses removed/hidden)
+            </div> */}
 
             {/* Content */}
             <div className="relative z-10 max-w-[1440px] mx-auto px-4 sm:px-6 md:px-8 text-center flex flex-col items-center justify-center w-full py-20">
