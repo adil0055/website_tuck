@@ -46,11 +46,23 @@ export default function Hero() {
                 }
             `}</style>
 
-            {/* Background Image - Replaces Image Sequence */}
-            <div className="absolute inset-0 w-full h-full pointer-events-none z-0">
+            {/* Background Image - Desktop */}
+            <div className="hidden md:block absolute inset-0 w-full h-full pointer-events-none z-0">
                 <Image
                     src="/hero-bg-desktop-17.png"
-                    alt="Hero Background"
+                    alt="Hero Background Desktop"
+                    fill
+                    className="object-cover"
+                    priority
+                    unoptimized
+                />
+            </div>
+
+            {/* Background Image - Mobile */}
+            <div className="block md:hidden absolute inset-0 w-full h-full pointer-events-none z-0">
+                <Image
+                    src="/hero-bg-mobile.png"
+                    alt="Hero Background Mobile"
                     fill
                     className="object-cover"
                     priority
