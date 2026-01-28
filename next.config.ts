@@ -1,7 +1,7 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-    // output: "export", // Removed to allow API routes (like /api/send) to function
+    output: "export", // Enabled for static export (note: API routes might not work)
     images: {
         unoptimized: true,
     },
