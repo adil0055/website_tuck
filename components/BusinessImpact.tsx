@@ -53,7 +53,7 @@ const BusinessImpact = () => {
 
                         {/* Metric 2 */}
                         <div className="pt-12 pb-4 lg:px-12">
-                            <h3 className="font-heading text-[80px] font-bold mb-2 tracking-[-2px] text-[#2057F3] leading-none">-22%</h3>
+                            <h3 className="font-heading text-[80px] font-bold mb-2 tracking-[-2px] text-[#2057F3] leading-none">5-10%</h3>
                             <p className="font-heading text-[20px] font-bold mb-6 tracking-wide text-black">
                                 Return rate
                             </p>

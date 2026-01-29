@@ -12,7 +12,7 @@ export default function TuckSolutions() {
                         <div className="bg-white px-6 lg:px-[92px] py-16 lg:py-[76px] flex flex-col justify-start">
                             {/* Section Label */}
                             <p
-                                className="font-body text-[20px] font-semibold text-black mb-6 tracking-[-0.1px] leading-[61px]"
+                                className="font-body text-[16px] font-medium text-black mb-2 tracking-[-0.1px] leading-normal"
                                 data-node-id="40:1322"
                             >
                                 Tuck solutions
@@ -20,7 +20,7 @@ export default function TuckSolutions() {
 
                             {/* Main Heading */}
                             <h2
-                                className="font-heading text-[32px] sm:text-[40px] lg:text-[48px] font-extrabold text-black leading-[61px] tracking-[-0.1px]"
+                                className="font-heading text-[32px] sm:text-[40px] lg:text-[48px] font-extrabold text-black leading-[1.1] tracking-[-0.1px] pb-4 lg:pb-0"
                                 data-node-id="40:1321"
                             >
                                 Virtual Try‑Ons.<br />Obvious Fit.
@@ -28,13 +28,13 @@ export default function TuckSolutions() {
                         </div>
 
                         {/* Right Column - BLUE Background Split Horizontally */}
-                        <div className="bg-[#03c]" data-node-id="40:1323">
+                        <div className="bg-white lg:bg-[#03c]" data-node-id="40:1323">
                             {/* Solution 01 - Tuck API */}
                             <div className="relative border-b border-gray-300 lg:border-b-0">
                                 {/* Container for number and content */}
                                 <div className="grid lg:grid-cols-[248px_1fr] min-h-[387px]">
                                     {/* Number Badge Area - 248px wide */}
-                                    <div className="flex items-center justify-center py-12 lg:py-0">
+                                    <div className="flex items-center justify-center py-8 lg:py-0 bg-[#03c] mx-6 lg:mx-0">
                                         <div
                                             className="font-heading text-[40px] font-medium leading-[26px] text-white"
                                             data-node-id="40:1327"
@@ -94,7 +94,7 @@ export default function TuckSolutions() {
                                 {/* Container for number and content */}
                                 <div className="grid lg:grid-cols-[248px_1fr] min-h-[387px]">
                                     {/* Number Badge Area - 248px wide */}
-                                    <div className="flex items-center justify-center py-12 lg:py-0">
+                                    <div className="flex items-center justify-center py-8 lg:py-0 bg-[#03c] mx-6 lg:mx-0">
                                         <div
                                             className="font-heading text-[40px] font-medium leading-[26px] text-white"
                                             data-node-id="40:1328"

@@ -91,7 +91,7 @@ export default function Hero() {
                 </p>
 
                 {/* Buttons - Frame 50 at y=474 */}
-                <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-[18px]">
+                <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-[18px] w-[50%]">
                     {/* Book demo button - Rectangle 4214 (32:951) + Text (32:954) */}
                     {/* 132px × 42px, blue bg, white text, 17px Figtree Bold, -0.5px tracking */}
                     <Link
