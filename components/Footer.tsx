@@ -20,11 +20,11 @@ export default function Footer({ showCta = true }: FooterProps) {
                         <p className="font-body text-[18px] lg:text-[20px] leading-[1.6] mb-10 max-w-[800px] text-blue-100">
                             Trial experiences often limit how much customers can explore. Tuck helps retailers remove that friction and improve conversion.
                         </p>
-                        <div className="flex flex-wrap items-center gap-4">
-                            <Link href="/contact" className="font-body font-medium bg-black text-white px-8 py-3 hover:bg-neutral-800 transition-colors text-[15px]">
+                        <div className="flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto">
+                            <Link href="/contact" className="font-body font-medium bg-black text-white px-8 py-3 hover:bg-neutral-800 transition-colors text-[15px] w-full sm:w-auto text-center flex items-center justify-center">
                                 Book Demo
                             </Link>
-                            <button className="font-body font-medium bg-white text-black px-8 py-3 hover:bg-gray-100 transition-colors text-[15px]">
+                            <button className="font-body font-medium bg-white text-black px-8 py-3 hover:bg-gray-100 transition-colors text-[15px] w-full sm:w-auto text-center flex items-center justify-center">
                                 Talk to sales
                             </button>
                         </div>

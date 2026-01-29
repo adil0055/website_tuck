@@ -28,7 +28,7 @@ const BusinessImpact = () => {
 
                 {/* Metrics Grid */}
                 <div className="relative">
-                    <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-0 relative">
+                    <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-0 relative divide-y divide-black lg:divide-y-0">
                         {/* Three Separate Horizontal Line Segments with gaps at intersections */}
                         <div className="hidden lg:block absolute left-0 top-0 h-[5px] bg-black" style={{ width: 'calc(33.333% - 2.5px)' }}></div>
                         <div className="hidden lg:block absolute top-0 h-[5px] bg-black" style={{ left: 'calc(33.333% + 7.5px)', width: 'calc(33.333% - 10px)' }}></div>

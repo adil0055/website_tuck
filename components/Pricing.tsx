@@ -165,11 +165,11 @@ export default function Pricing() {
 
                                 <div className="flex justify-center w-full">
                                     <button
-                                        className={`flex items-center justify-center gap-2 border text-[16px] font-medium leading-[150%] transition-colors font-inter ${isScale
+                                        className={`flex items-center justify-center gap-2 border text-[16px] font-medium leading-[150%] transition-colors font-inter w-full lg:w-[243px] h-[40px] px-[18px] ${isScale
                                             ? "bg-white text-black border-white hover:bg-gray-200"
                                             : "bg-transparent text-black border-black hover:bg-black hover:text-white"
                                             }`}
-                                        style={{ width: '243px', height: '40px', padding: '8px 18px' }}
+                                        style={{}}
                                     >
                                         {plan.buttonText}
                                     </button>
@@ -199,8 +199,8 @@ export default function Pricing() {
 
                         <div className="flex justify-center w-full">
                             <button
-                                className="flex items-center justify-center gap-2 border text-[16px] font-medium leading-[150%] transition-colors font-inter bg-transparent text-black border-black hover:bg-black hover:text-white"
-                                style={{ width: '243px', height: '40px', padding: '8px 18px' }}
+                                className="flex items-center justify-center gap-2 border text-[16px] font-medium leading-[150%] transition-colors font-inter bg-transparent text-black border-black hover:bg-black hover:text-white w-full lg:w-[243px] h-[40px] px-[18px]"
+                                style={{}}
                             >
                                 Contact Sales
                             </button>
