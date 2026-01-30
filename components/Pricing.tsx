@@ -135,7 +135,7 @@ export default function Pricing() {
                                     >
                                         {plan.name}
                                     </h3>
-                                    {(billingCycle !== "annual" && (plan.name === "Starter" || plan.name === "Growth" || plan.name === "Scale")) && (
+                                    {(plan.name === "Starter" || plan.name === "Growth" || plan.name === "Scale") && (
                                         <span className={`text-white text-[10px] font-medium leading-[150%] px-2 py-0.5 font-body ${isScale ? "bg-[#0033cc]" : "bg-[#0033cc]"}`}>
                                             {plan.discount}
                                         </span>

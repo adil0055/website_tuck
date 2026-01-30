@@ -62,7 +62,7 @@ export default function Hero() {
             <div className="block md:hidden absolute inset-0 w-full h-full pointer-events-none z-0">
                 <Image
                     src="/hero-bg-mobile.png"
-                    alt="Hero Background Mobile"
+                    alt="Tuck Hero Mobile Background"
                     fill
                     className="object-cover"
                     priority

@@ -1,4 +1,10 @@
-import React from "react";
+"use client";
+
+import React, { useEffect, useRef } from "react";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
 
 const BusinessImpact = () => {
     return (
@@ -28,52 +34,60 @@ const BusinessImpact = () => {
 
                 {/* Metrics Grid */}
                 <div className="relative">
-                    <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-0 relative divide-y divide-black lg:divide-y-0">
-                        {/* Three Separate Horizontal Line Segments with gaps at intersections */}
-                        <div className="hidden lg:block absolute left-0 top-0 h-[5px] bg-black" style={{ width: 'calc(33.333% - 2.5px)' }}></div>
-                        <div className="hidden lg:block absolute top-0 h-[5px] bg-black" style={{ left: 'calc(33.333% + 7.5px)', width: 'calc(33.333% - 10px)' }}></div>
-                        <div className="hidden lg:block absolute top-0 h-[5px] bg-black" style={{ left: 'calc(66.666% + 7.5px)', width: 'calc(33.334% - 7.5px)' }}></div>
+                    {/* Desktop-only Connected Grid Lines (Restored) */}
+                    <div className="hidden lg:block absolute left-0 top-0 h-[5px] bg-black" style={{ width: 'calc(33.333% - 2.5px)' }}></div>
+                    <div className="hidden lg:block absolute top-0 h-[5px] bg-black" style={{ left: 'calc(33.333% + 7.5px)', width: 'calc(33.333% - 10px)' }}></div>
+                    <div className="hidden lg:block absolute top-0 h-[5px] bg-black" style={{ left: 'calc(66.666% + 7.5px)', width: 'calc(33.334% - 7.5px)' }}></div>
 
-                        {/* Two Vertical Lines */}
-                        <div className="hidden lg:block absolute top-[5px] w-[5px] bg-black" style={{ left: '33.333%', height: 'calc(100% - 5px)' }}></div>
-                        <div className="hidden lg:block absolute top-[5px] w-[5px] bg-black" style={{ left: '66.666%', height: 'calc(100% - 5px)' }}></div>
+                    <div className="hidden lg:block absolute top-[5px] w-[5px] bg-black" style={{ left: '33.333%', height: 'calc(100% - 5px)' }}></div>
+                    <div className="hidden lg:block absolute top-[5px] w-[5px] bg-black" style={{ left: '66.666%', height: 'calc(100% - 5px)' }}></div>
+
+                    <div className="grid grid-cols-1 lg:grid-cols-3 gap-10 lg:gap-0">
 
                         {/* Metric 1 */}
-                        <div className="pt-12 pb-4 lg:pr-12">
+                        {/* Mobile: Relative with padding for border. Desktop: Static with standard grid padding. */}
+                        <div className="relative pt-10 pl-8 pr-4 pb-4 lg:static lg:pt-12 lg:pr-12 lg:pl-0 lg:pb-4">
+                            {/* Disconnected Borders (Mobile Only) */}
+                            <div className="absolute top-0 right-0 h-[5px] bg-black w-[calc(100%-24px)] lg:hidden" />
+                            <div className="absolute bottom-0 left-0 w-[5px] bg-black h-[calc(100%-24px)] lg:hidden" />
+
                             <h3 className="font-heading text-[80px] font-bold mb-2 tracking-[-2px] text-[#2057F3] leading-none">+15%</h3>
                             <p className="font-heading text-[20px] font-bold mb-6 tracking-wide text-black">
-                                PDP conversion rate
+                                Higher conversion
                             </p>
                             <p className="font-body text-[16px] font-medium text-black leading-[25.2px] max-w-[300px]">
-                                Customers who visualize fit before purchase are more confident to
-                                buy. Tuck turns browsers into buyers by removing the final friction
-                                point at product decision.
+                                Shoppers who see accurate fit visualization are significantly more likely to complete their purchase.
                             </p>
                         </div>
 
                         {/* Metric 2 */}
-                        <div className="pt-12 pb-4 lg:px-12">
+                        <div className="relative pt-10 pl-8 pr-4 pb-4 lg:static lg:pt-12 lg:px-12 lg:pb-4">
+                            {/* Disconnected Borders (Mobile Only) */}
+                            <div className="absolute top-0 right-0 h-[5px] bg-black w-[calc(100%-24px)] lg:hidden" />
+                            <div className="absolute bottom-0 left-0 w-[5px] bg-black h-[calc(100%-24px)] lg:hidden" />
+
                             <h3 className="font-heading text-[80px] font-bold mb-2 tracking-[-2px] text-[#2057F3] leading-none">5-10%</h3>
                             <p className="font-heading text-[20px] font-bold mb-6 tracking-wide text-black">
-                                Return rate
+                                Fewer returns
                             </p>
                             <p className="font-body text-[16px] font-medium text-black leading-[25.2px] max-w-[300px]">
-                                Accurate fit visualization eliminates guesswork. When customers see
-                                how pieces look and fit on their body, returns from sizing issues
-                                drop dramatically protecting your margins.
+                                Accurate try-ons eliminate size uncertainty, allowing customers to visualize fit and reducing size-related returns.
                             </p>
                         </div>
 
                         {/* Metric 3 */}
-                        <div className="pt-12 pb-4 lg:pl-12">
+                        <div className="relative pt-10 pl-8 pr-4 pb-4 lg:static lg:pt-12 lg:pl-12 lg:pr-0 lg:pb-4">
+                            {/* Disconnected Borders (Mobile Only) */}
+                            <div className="absolute top-0 right-0 h-[5px] bg-black w-[calc(100%-24px)] lg:hidden" />
+                            <div className="absolute bottom-0 left-0 w-[5px] bg-black h-[calc(100%-24px)] lg:hidden" />
+
                             <h3 className="font-heading text-[80px] font-bold mb-2 tracking-[-2px] text-[#2057F3] leading-none">+20%</h3>
                             <p className="font-heading text-[20px] font-bold mb-6 tracking-wide text-black">
                                 Upsell capability
                             </p>
                             <p className="font-body text-[16px] font-medium text-black leading-[25.2px] max-w-[300px]">
                                 Same store traffic, higher revenue. Tuck unlocks hidden purchasing
-                                power from visitors who would have otherwise left empty-handed,
-                                converting curiosity into sales.
+                                power from visitors who would have otherwise left empty-handed.
                             </p>
                         </div>
                     </div>

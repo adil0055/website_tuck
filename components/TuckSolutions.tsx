@@ -1,9 +1,57 @@
-import React from "react";
+"use client";
+
+import React, { useRef, useEffect } from "react";
 import Link from "next/link";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
+
+// Helper component for animated numbers
+const NumberTicker = ({
+    target,
+    start = 0,
+    suffix = "",
+    duration = 2,
+    className = ""
+}: {
+    target: number;
+    start?: number;
+    suffix?: string;
+    duration?: number;
+    className?: string;
+}) => {
+    const numberRef = useRef<HTMLSpanElement>(null);
+
+    useEffect(() => {
+        const el = numberRef.current;
+        if (!el) return;
+
+        const obj = { val: start };
+
+        gsap.to(obj, {
+            val: target,
+            duration: duration,
+            ease: "power2.out",
+            scrollTrigger: {
+                trigger: el,
+                start: "top 85%",
+                toggleActions: "play none none reverse",
+            },
+            onUpdate: function () {
+                el.innerText = Math.round(obj.val) + suffix;
+            },
+        });
+    }, [target, start, suffix, duration]);
+
+    return <span ref={numberRef} className={className}>{start}{suffix}</span>;
+};
 
 export default function TuckSolutions() {
+    const containerRef = useRef<HTMLElement>(null);
+
     return (
-        <section id="product" className="bg-white" data-node-id="40:1304">
+        <section ref={containerRef} id="product" className="bg-white" data-node-id="40:1304">
             {/* Top Section Wrapper - Constrained Width to match Metrics */}
             <div className="w-full border-b border-black">
                 <div className="max-w-[1600px] mx-auto border-x border-black">
@@ -169,7 +217,7 @@ export default function TuckSolutions() {
                         <div className="px-10 lg:px-[92px] py-12 lg:py-16">
                             <div className="mb-6">
                                 <h3 className="font-heading text-[48px] font-bold leading-[31px] tracking-[-0.1px] text-black mb-1">
-                                    95%
+                                    <NumberTicker target={95} suffix="%" />
                                 </h3>
                                 <p className="font-heading text-[24px] font-bold text-black leading-[1.2]">
                                     Realism score
@@ -182,10 +230,10 @@ export default function TuckSolutions() {
                         </div>
 
                         {/* Metric 2 */}
-                        <div className="px-6 lg:px-[92px] py-12 lg:py-16">
+                        <div className="px-10 lg:px-[92px] py-12 lg:py-16">
                             <div className="mb-6">
                                 <h3 className="font-heading text-[56px] font-medium leading-[1] tracking-[-1px] text-black mb-1">
-                                    15s
+                                    <NumberTicker target={15} start={120} suffix="s" />
                                 </h3>
                                 <p className="font-heading text-[20px] font-bold text-black leading-[1.2]">
                                     Speed
@@ -198,10 +246,10 @@ export default function TuckSolutions() {
                         </div>
 
                         {/* Metric 3 */}
-                        <div className="px-6 lg:px-[92px] py-12 lg:py-16">
+                        <div className="px-10 lg:px-[92px] py-12 lg:py-16">
                             <div className="mb-6">
                                 <h3 className="font-heading text-[56px] font-medium leading-[1] tracking-[-1px] text-black mb-1">
-                                    49%
+                                    <NumberTicker target={49} suffix="%" />
                                 </h3>
                                 <p className="font-heading text-[20px] font-bold text-black leading-[1.2]">
                                     Cost Savings
