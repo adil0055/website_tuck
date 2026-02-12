@@ -8,58 +8,58 @@ export default function Pricing() {
     const plans = [
         {
             name: "Starter",
-            price: billingCycle === "monthly" ? "10.99" : "109.90",
-            originalPrice: billingCycle === "monthly" ? "16.00" : "192.00",
-            discount: billingCycle === "monthly" ? "31% OFF" : "43% OFF",
-            features: billingCycle === "monthly" ? [
-                "400 try-ons / month",
-                "$0.027 per try-on",
-                "Ideal for low-volume trials"
-            ] : [
-                "4800 try-ons / Year",
-                "$0.023 per try-on",
-                "2 months FREE",
-                "Lower cost than monthly"
+            audience: "Emerging Brands",
+            volume: "Up to 1,000",
+            unitPrice: billingCycle === "monthly" ? "$0.030 / gen" : "$0.025 / gen",
+            price: billingCycle === "monthly" ? "30" : "25",
+            period: "/ mo",
+            billed: billingCycle === "annual" ? "Billed $300 upfront" : null,
+            benchmark: billingCycle === "monthly" ? "$40" : "$400",
+            features: [
+                "Ideal for Emerging Brands",
+                "1,000 try-ons / month",
+                billingCycle === "monthly" ? "$0.030 per try-on" : "$0.025 per try-on",
             ],
-            buttonText: "Get Started",
+            buttonText: "Start Building",
             highlighted: false,
+            badge: billingCycle === "annual" ? "Save $60" : null,
         },
         {
             name: "Growth",
-            price: billingCycle === "monthly" ? "19.99" : "199.90",
-            originalPrice: billingCycle === "monthly" ? "40.00" : "480.00",
-            discount: billingCycle === "monthly" ? "50% OFF" : "58% OFF",
-            features: billingCycle === "monthly" ? [
-                "1,000 try-ons / month",
-                "$0.020 per try-on",
-                "Higher try-ons, better conversion"
-            ] : [
-                "12,000 try-ons / year",
-                "$0.016 per try-on",
-                "2 months FREE",
-                "Strong balance of scale + savings"
+            audience: "Growth Retailers",
+            volume: "Up to 10,000",
+            unitPrice: billingCycle === "monthly" ? "$0.028 / gen" : "$0.022 / gen",
+            price: billingCycle === "monthly" ? "280" : "220",
+            period: "/ mo",
+            billed: billingCycle === "annual" ? "Billed $2,640 upfront" : null,
+            benchmark: billingCycle === "monthly" ? "$400" : "$4,000",
+            features: [
+                "Ideal for Growth Retailers",
+                "10,000 try-ons / month",
+                billingCycle === "monthly" ? "$0.028 per try-on" : "$0.022 per try-on",
             ],
-            buttonText: "Get Started",
+            buttonText: "Upgrade Now",
             highlighted: false,
+            badge: billingCycle === "annual" ? "Save $720" : null,
         },
         {
             name: "Scale",
-            price: billingCycle === "monthly" ? "35.99" : "359.90",
-            originalPrice: billingCycle === "monthly" ? "80.00" : "960.00",
-            discount: billingCycle === "monthly" ? "55% OFF" : "63% OFF",
-            features: billingCycle === "monthly" ? [
-                "2000 try-ons / month",
-                "$0.018 per try-on",
-                "Optimised for peak hours"
-            ] : [
-                "24,000 try-ons / Year",
-                "$0.015 per try-on",
-                "Best value for money",
-                "Designed for large format stores"
+            audience: "Established Chains",
+            volume: "Up to 30,000",
+            unitPrice: billingCycle === "monthly" ? "$0.026 / gen" : "$0.021 / gen",
+            price: billingCycle === "monthly" ? "780" : "630",
+            period: "/ mo",
+            billed: billingCycle === "annual" ? "Billed $7,560 upfront" : null,
+            benchmark: billingCycle === "monthly" ? "$1,200" : "$12,000",
+            features: [
+                "Ideal for Established Chains",
+                "30,000 try-ons / month",
+                billingCycle === "monthly" ? "$0.026 per try-on" : "$0.021 per try-on",
             ],
-            buttonText: "Get Started",
+            buttonText: "Go High Volume",
             highlighted: true,
             bestValue: true,
+            badge: billingCycle === "annual" ? "Save $1,800" : (billingCycle === "monthly" ? "Best value" : null),
         },
     ];
 
@@ -109,23 +109,16 @@ export default function Pricing() {
                 {/* Grid */}
                 <div className="flex flex-wrap justify-center gap-12 items-start mt-12">
                     {plans.map((plan, index) => {
-                        const isScale = plan.name === "Scale";
+                        const isScale = plan.highlighted;
                         return (
                             <div
                                 key={index}
                                 className={`relative border border-black p-6 flex flex-col ${isScale ? "bg-black text-white" : "bg-white text-black"}`}
-                                style={{ width: '292px', height: '329px' }}
+                                style={{ width: '292px', height: '380px' }}
                             >
-                                {/* Introductory Pricing Tag for specific plans */}
-                                {(plan.name === "Starter" || plan.name === "Growth" || isScale) && (
-                                    <div className="absolute -top-[32px] left-[-1px] bg-[#0033cc] text-white text-[10px] font-bold px-4 py-2 uppercase tracking-wide">
-                                        INTRODUCTORY PRICING
-                                    </div>
-                                )}
-
-                                {plan.bestValue && (
+                                {plan.badge && (
                                     <div className="absolute top-0 right-0 bg-[#0033cc] text-white text-[12px] font-medium px-4 py-2">
-                                        Best value
+                                        {plan.badge}
                                     </div>
                                 )}
 
@@ -135,21 +128,26 @@ export default function Pricing() {
                                     >
                                         {plan.name}
                                     </h3>
-                                    {(plan.name === "Starter" || plan.name === "Growth" || plan.name === "Scale") && (
-                                        <span className={`text-white text-[10px] font-medium leading-[150%] px-2 py-0.5 font-body ${isScale ? "bg-[#0033cc]" : "bg-[#0033cc]"}`}>
-                                            {plan.discount}
+                                </div>
+
+                                <div className="flex flex-col mb-4">
+                                    <div className="flex items-end gap-1">
+                                        <span className={`font-inter text-[32px] font-medium leading-[100%] ${isScale ? "text-white" : "text-black"}`}>
+                                            ${plan.price}
                                         </span>
+                                        <span className={`text-[20px] font-normal mb-1 ${isScale ? "text-white" : "text-black"}`}>{plan.period}</span>
+                                    </div>
+                                    {plan.billed && (
+                                        <div className={`text-[12px] mt-1 ${isScale ? "text-gray-300" : "text-gray-500"}`}>
+                                            {plan.billed}
+                                        </div>
                                     )}
                                 </div>
 
-                                <div className="flex items-center gap-3 mb-6">
-                                    <span className={`font-inter text-[32px] font-medium leading-[120%] ${isScale ? "text-white" : "text-black"}`}>
-                                        ${plan.price}
-                                    </span>
-                                    <span className={`relative font-body text-[20px] font-medium leading-[120%] ${isScale ? "text-gray-400" : "text-black"}`}>
-                                        ${plan.originalPrice}
-                                        <span className={`absolute left-0 top-1/2 w-full h-[1px] -translate-y-1/2 ${isScale ? "bg-white" : "bg-black"}`}></span>
-                                    </span>
+                                {/* Market Benchmark Display */}
+                                <div className={`flex items-center gap-2 mb-4 text-[14px] ${isScale ? "text-gray-300" : "text-gray-500"}`}>
+                                    <span>Market Benchmark:</span>
+                                    <span className="line-through decoration-red-500 decoration-2">{plan.benchmark}</span>
                                 </div>
 
                                 <ul className="space-y-1 mb-8 flex-1">
@@ -181,7 +179,7 @@ export default function Pricing() {
                     {/* Enterprise Card */}
                     <div
                         className="relative border border-black p-6 flex flex-col bg-white text-black"
-                        style={{ width: '292px', height: '329px' }}
+                        style={{ width: '292px', height: '380px' }}
                     >
                         <div className="flex items-center gap-4 mb-2">
                             <h3 className="font-heading text-[24px] font-medium leading-[120%] text-black">Enterprise</h3>
@@ -191,7 +189,14 @@ export default function Pricing() {
                             <h2 className="font-inter text-[32px] font-medium leading-[120%] text-black">Custom</h2>
                         </div>
 
+                        {/* Placeholder for alignment sake */}
+                        <div className="flex items-center gap-2 mb-4 text-[14px] text-gray-500 invisible">
+                            <span>Market Benchmark: --</span>
+                        </div>
+
                         <ul className="space-y-1 mb-8 flex-1">
+                            <li className="font-inter text-[14px] font-medium leading-[140%] text-black">Ideal for Large Enterprises</li>
+                            <li className="font-inter text-[14px] font-medium leading-[140%] text-black">30,000+ try-ons</li>
                             <li className="font-inter text-[14px] font-medium leading-[140%] text-black">Custom pricing</li>
                             <li className="font-inter text-[14px] font-medium leading-[140%] text-black">Volume discounts</li>
                             <li className="font-inter text-[14px] font-medium leading-[140%] text-black">Dedicated support & deployment</li>

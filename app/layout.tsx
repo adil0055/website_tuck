@@ -3,9 +3,11 @@ import "./globals.css";
 import { hostGrotesk, figtree, jetbrainsMono, inter } from "./fonts";
 
 export const metadata: Metadata = {
-    title: "Tuck - The most realistic virtual fitting room ever built",
-    description: "Virtual try-ons that move the metrics that matter. Reduce returns, increase conversions, and build customer confidence.",
-    keywords: ["virtual fitting room", "virtual try-on", "fashion tech", "e-commerce", "VTON"],
+    title: "Tuck - AI Virtual Try-On",
+    description: "Experience the next generation of virtual try-on technology with Tuck.",
+    icons: {
+        icon: '/icon.webp',
+    },
 };
 
 import SmoothScrolling from "@/components/SmoothScrolling";
